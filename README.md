@@ -8,6 +8,34 @@ A customizable React Native UI component library.
 npm install @tcbs/react-native-mazic-ui
 ```
 
+
+## Theme Setup Example
+
+```tsx
+import { useTcbsColorStore } from '@tcbs/react-native-mazic-ui';
+
+const { setTcbsColor } = useTcbsColorStore();
+
+React.useEffect(() => {
+  setTcbsColor({
+    light: {
+      btnColor: '#007AFF',
+      btnBorderColor: '#007AFF',
+      btnIconColor: '#16a62bff',
+      themeColor: '#007AFF',
+      btnTextColor: '#FFFFFF',
+    },
+    dark: {
+      btnColor: '#222222',
+      btnBorderColor: '#222222',
+      btnIconColor: '#FFFFFF',
+      themeColor: '#222222',
+      btnTextColor: '#FFFFFF',
+    },
+  });
+}, []);
+```
+
 ## Usage
 
 ```tsx
