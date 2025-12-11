@@ -118,7 +118,32 @@ You can choose from three sizes:
 <TcbsButton title="Small" size="small" onPress={...} />
 ```
 
-### With Icon
+
+### Supported Icon Groups
+
+You can use the following icon groups for the `iconGroup` prop:
+
+- `AntDesign`
+- `Feather`
+- `FontAwesome`
+- `Foundation`
+- `Ionicons`
+- `MaterialDesignIcons`
+- `Octicons`
+- `Lucide` (if available in your project)
+
+Example usage:
+
+```tsx
+<TcbsButton
+  title="AntDesign"
+  iconName="check"
+  iconGroup="AntDesign"
+  iconPosition="left"
+  onPress={...}
+/>
+```
+
 
 ```tsx
 <TcbsButton
@@ -179,6 +204,13 @@ You can choose from three sizes:
 />
 ```
 
-### All Props
 
 See the exported `TcbsButtonProps` type for all available options.
+
+---
+
+## License
+
+MIT
+
+Copyright (c) TechCraft By Subrata
