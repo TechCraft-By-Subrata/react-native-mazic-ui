@@ -6,6 +6,7 @@ export type ThemeColor = {
   btnIconColor?: string;
   themeColor: string;
   btnTextColor: string;
+  screenBgColor?: string;
 };
 
 export type ThemeMode = 'light' | 'dark';
@@ -24,18 +25,18 @@ export interface ThemeStore {
 
 const defaultColors: ThemeColors = {
   light: {
-    btnColor: '#007AFF',
-    btnBorderColor: '#007AFF',
-    btnIconColor: '#007AFF',
-    themeColor: '#007AFF',
-    btnTextColor: '#FFFFFF',
+    // btnColor: '#007AFF',
+    // btnBorderColor: '#007AFF',
+    // btnIconColor: '#16a62bff',
+    // themeColor: '#007AFF',
+    // btnTextColor: '#FFFFFF',
   },
   dark: {
-    btnColor: '#222222',
-    btnBorderColor: '#222222',
-    btnIconColor: '#FFFFFF',
-    themeColor: '#222222',
-    btnTextColor: '#FFFFFF',
+    // btnColor: '#222222',
+    // btnBorderColor: '#222222',
+    // btnIconColor: '#FFFFFF',
+    // themeColor: '#222222',
+    // btnTextColor: '#FFFFFF',
   },
 };
 

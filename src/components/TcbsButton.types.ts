@@ -66,4 +66,5 @@ export interface TcbsButtonProps {
     btnTextColor?: string;
     btnTxtColor?: string;
   };
+  screenBgColor?: string;
 }

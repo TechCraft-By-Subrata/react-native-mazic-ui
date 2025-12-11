@@ -73,6 +73,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   accessibilityRole = 'button',
   accessibilityState,
   themeColor,
+  screenBgColor,
 }) => {
   // Use theme from store if not provided as prop
   const { colors, mode } = useTcbsColorStore();
@@ -80,9 +81,9 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   // Normalize colors: if only one color is set, use it for all
   const normalizedColors = {
     btnColor: effectiveThemeColor?.btnColor ?? effectiveThemeColor?.themeColor ?? '#007AFF',
-    btnBorderColor: effectiveThemeColor?.btnBorderColor ?? effectiveThemeColor?.btnColor ?? effectiveThemeColor?.themeColor ?? '#007AFF',
-    btnIconColor: effectiveThemeColor?.btnIconColor ?? effectiveThemeColor?.btnColor ?? effectiveThemeColor?.themeColor ?? '#007AFF',
-    btnTextColor: effectiveThemeColor?.btnTextColor ?? effectiveThemeColor?.btnTxtColor ?? '#FFFFFF',
+    btnBorderColor: effectiveThemeColor?.btnBorderColor ?? effectiveThemeColor?.btnColor ?? '#007AFF',
+    btnIconColor: effectiveThemeColor?.btnIconColor,
+    btnTextColor: effectiveThemeColor?.btnTextColor ?? effectiveThemeColor?.btnTxtColor  ,
     themeColor: effectiveThemeColor?.themeColor ?? effectiveThemeColor?.btnColor ?? '#007AFF',
   };
 
@@ -109,7 +110,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     if (variant === BUTTON_VARIANT.NO_BORDER) {
       return {
         ...baseStyle,
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
         ...(style as ViewStyle),
       };
     }
@@ -130,8 +131,8 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   const themedTextStyle = useMemo<TextStyle>(() => {
     const baseTextColor =
       variant === BUTTON_VARIANT.PRIMARY
-        ? normalizedColors.btnTextColor
-        : normalizedColors.btnColor;
+        ? normalizedColors.btnTextColor || '#FFFFFF'
+        : variant === BUTTON_VARIANT.NO_BORDER && mode === 'dark' ? normalizedColors.btnTextColor || "#FFFFFF" : normalizedColors?.btnColor || normalizedColors?.themeColor || "#FFFFFF";
 
     return {
       color: baseTextColor,
@@ -145,7 +146,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     <IconComponent
       name={iconName!}
       size={iconSize || FONT_SIZES[size] * 2}
-      color={iconColor || normalizedColors.btnIconColor}
+      color={iconColor || normalizedColors.btnIconColor || themedTextStyle.color}
       style={
         iconPosition === 'top'
           ? { marginBottom: 2 }
