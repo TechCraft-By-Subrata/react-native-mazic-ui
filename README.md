@@ -65,12 +65,57 @@ import { TcbsButton } from '@tcbs/react-native-mazic-ui';
 <TcbsButton title="Small" size="small" onPress={...} />
 ```
 
+
 ### Variant Styles
 
+You can choose from three variants:
+
+- `primary`: Filled button with main color
+- `secondary`: Outlined button with border
+- `no_border`: Button with no border and matches screen background
+
 ```tsx
-<TcbsButton title="Primary" variant="primary" onPress={...} />
-<TcbsButton title="Secondary" variant="secondary" onPress={...} />
-<TcbsButton title="No Border" variant="no_border" onPress={...} />
+<View>
+  <TcbsButton
+    title="TCBS Button"
+    variant="primary"
+    onPress={() => console.log('TCBS Button Pressed')}
+    iconName="heart"
+    iconPosition="left"
+  />
+</View>
+<View>
+  <TcbsButton
+    title="TCBS Button"
+    variant="secondary"
+    onPress={() => console.log('TCBS Button Pressed')}
+    iconName="star"
+    iconPosition="right"
+  />
+</View>
+<View>
+  <TcbsButton
+    title="TCBS Button"
+    variant="no_border"
+    onPress={() => console.log('TCBS Button Pressed')}
+    iconName="home"
+    iconPosition="left"
+  />
+</View>
+```
+
+### Size Options
+
+You can choose from three sizes:
+
+- `large`: Large button (default)
+- `medium`: Medium button
+- `small`: Small button
+
+```tsx
+<TcbsButton title="Large" size="large" onPress={...} />
+<TcbsButton title="Medium" size="medium" onPress={...} />
+<TcbsButton title="Small" size="small" onPress={...} />
 ```
 
 ### With Icon
