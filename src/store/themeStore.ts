@@ -208,14 +208,14 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
       // --- Light Theme Palette ---
       const lightColors: ThemeColor = {
         // Primary & Button Colors (baseColor is the accent)
-        btnColor: baseColor,
+        btnColor: addAlpha(baseColor,1),
         btnBorderColor: baseColor,
         btnIconColor: buttonTextColor,
         themeColor: baseColor,
         btnTextColor: buttonTextColor,
 
         // Backgrounds (Clean white/near-white neutrals)
-        screenBgColor: '#FFFFFF', // Pure white
+        screenBgColor: addAlpha(baseColor,0.1), // Pure white
         modalBgColor: addAlpha('#000000', 0.5), // Standard dark overlay
         modalHeaderBgColor: '#F0F0F0', // Light gray
         modalCardBgColor: '#FAFAFA', // Off-white for cards/modals
@@ -244,14 +244,14 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
       // --- Dark Theme Palette ---
       const darkColors: ThemeColor = {
         // Primary & Button Colors
-        btnColor: baseColor,
+        btnColor: addAlpha(baseColor,1),
         btnBorderColor: baseColor,
-        btnIconColor: '#FFFFFF',
+        btnIconColor: buttonTextColor,
         themeColor: baseColor,
-        btnTextColor: '#FFFFFF',
+        btnTextColor: buttonTextColor,
 
         // Backgrounds (Clean dark/near-black neutrals)
-        screenBgColor: '#121212', // Very dark gray
+        screenBgColor: addAlpha(baseColor,0.8), // Very dark gray
         modalBgColor: addAlpha('#000000', 0.8), // Darker overlay
         modalHeaderBgColor: '#1F1F1F', // Slightly lighter dark gray
         modalCardBgColor: '#2C2C2C', // Medium dark gray for cards/modals

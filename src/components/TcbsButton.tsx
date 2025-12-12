@@ -130,7 +130,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     const baseTextColor =
       variant === BUTTON_VARIANT.PRIMARY
         ? normalizedColors.btnTextColor || '#FFFFFF'
-        : variant === BUTTON_VARIANT.NO_BORDER && tcbsTheme === 'dark' ? normalizedColors.btnTextColor || "#FFFFFF" : normalizedColors?.btnColor || normalizedColors?.themeColor || "#FFFFFF";
+        : variant === BUTTON_VARIANT.NO_BORDER && tcbsTheme === 'dark' ? normalizedColors.btnTextColor || "#FFFFFF" : normalizedColors?.btnColor || "#FFFFFF";
 
     return {
       color: baseTextColor,
