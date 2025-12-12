@@ -17,12 +17,15 @@ export const BUTTON_VARIANT = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
   NO_BORDER: 'no_border',
+
 } as const;
 
 export const BORDER_RADIUS = {
   SMALL: 8,
   MEDIUM: 12,
   LARGE: 16,
+  NONE: 0,
+  FULL: '50%',
 } as const;
 
 export type ButtonSize = (typeof BUTTON_SIZE)[keyof typeof BUTTON_SIZE];

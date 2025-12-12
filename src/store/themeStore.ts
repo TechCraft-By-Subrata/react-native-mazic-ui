@@ -221,7 +221,8 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
     // REWRITTEN FUNCTION using hardcoded neutrals for better UI contrast
     setMazicColor: (baseColor: string) => {
       // Determine the best text color for the button based on the base color's brightness
-      const buttonTextColor = isColorDark(baseColor) ? '#FFFFFF' : '#000000';
+      // const buttonTextColor = isColorDark(baseColor) ? '#FFFFFF' : '#000000';
+      const buttonTextColor = '#FFFFFF' ;
       const secondaryBaseColor = adjustBrightness(baseColor, -10); // A slightly darker shade for accents
 
       // --- Light Theme Palette ---

@@ -34,7 +34,8 @@ const FONT_SIZES: Record<ButtonSize, number> = {
   [BUTTON_SIZE.SMALL]: 14,
 };
 
-const BORDER_RADIUSES: Record<ButtonSize, number> = {
+// Support for BORDER_RADIUS.NONE and BORDER_RADIUS.FULL (50%)
+const BORDER_RADIUSES: Record<ButtonSize, number | string> = {
   [BUTTON_SIZE.LARGE]: BORDER_RADIUS.MEDIUM,
   [BUTTON_SIZE.MEDIUM]: BORDER_RADIUS.SMALL,
   [BUTTON_SIZE.SMALL]: BORDER_RADIUS.SMALL,
@@ -87,9 +88,21 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   };
 
   const buttonStyle = useMemo<StyleProp<ViewStyle>>(() => {
+    const height = HEIGHTS[size];
+    let computedBorderRadius: number | string;
+    if (borderRadius === BORDER_RADIUS.NONE) {
+      computedBorderRadius = 0;
+    } else if (borderRadius === BORDER_RADIUS.FULL) {
+      computedBorderRadius = height / 2;
+    } else if (borderRadius !== undefined) {
+      computedBorderRadius = borderRadius;
+    } else {
+      computedBorderRadius = BORDER_RADIUSES[size];
+    }
+
     const baseStyle: ViewStyle = {
-      height: HEIGHTS[size],
-      borderRadius: borderRadius ?? BORDER_RADIUSES[size],
+      height,
+      borderRadius: computedBorderRadius,
       alignItems: 'center',
       justifyContent: 'center',
       opacity: disabled ? 0.6 : 1,
@@ -239,6 +252,5 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   );
 };
 
-// Export constants for use in consuming applications
 export { BUTTON_SIZE, BUTTON_VARIANT, BORDER_RADIUS };
 export type { ButtonSize, ButtonVariant, IconGroupType, IconPosition };

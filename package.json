@@ -13,7 +13,7 @@
     "react-native-vector-icons"
   ],
   "author": "TechCraft By Subrata <subraatakumar@gmail.com>",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public"
   },
