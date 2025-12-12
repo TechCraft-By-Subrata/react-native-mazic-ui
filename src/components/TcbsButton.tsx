@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { Appearance } from 'react-native';
 import { TouchableOpacity, Text, View ,  StyleProp, ViewStyle, TextStyle } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
@@ -127,10 +128,20 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   }, [size, variant, normalizedColors, style, disabled, borderRadius]);
 
   const themedTextStyle = useMemo<TextStyle>(() => {
-    const baseTextColor =
-      variant === BUTTON_VARIANT.PRIMARY
+    let baseTextColor;
+    if (variant === BUTTON_VARIANT.PRIMARY) {
+      baseTextColor = normalizedColors.btnTextColor || '#FFFFFF';
+    } else if (variant === BUTTON_VARIANT.NO_BORDER) {
+      let colorScheme = tcbsTheme;
+      if (tcbsTheme === 'system') {
+        colorScheme = Appearance.getColorScheme() || 'light';
+      }
+      baseTextColor = colorScheme === 'dark'
         ? normalizedColors.btnTextColor || '#FFFFFF'
-        : variant === BUTTON_VARIANT.NO_BORDER && tcbsTheme === 'dark' ? normalizedColors.btnTextColor || "#FFFFFF" : normalizedColors?.btnColor || "#FFFFFF";
+        : normalizedColors?.btnColor || '#007AFF';
+    } else {
+      baseTextColor = normalizedColors?.btnColor || '#FFFFFF';
+    }
 
     return {
       color: baseTextColor,
@@ -138,7 +149,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
       fontWeight: '700',
       ...(textStyle as TextStyle),
     };
-  }, [size, variant, normalizedColors, textStyle]);
+  }, [size, variant, normalizedColors, textStyle, tcbsTheme]);
 
   const renderIcon = (IconComponent: IconComponentType) => (
     <IconComponent
