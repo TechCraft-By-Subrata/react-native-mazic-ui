@@ -76,8 +76,8 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   screenBgColor,
 }) => {
   // Use theme from store if not provided as prop
-  const { colors, mode } = useTcbsColorStore();
-  const effectiveThemeColor = themeColor ?? colors[mode];
+  const { colors, tcbsTheme } = useTcbsColorStore();
+  const effectiveThemeColor = themeColor ?? colors[tcbsTheme];
   // Normalize colors: if only one color is set, use it for all
   const normalizedColors = {
     btnColor: effectiveThemeColor?.btnColor ?? effectiveThemeColor?.themeColor ?? '#007AFF',
@@ -132,7 +132,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     const baseTextColor =
       variant === BUTTON_VARIANT.PRIMARY
         ? normalizedColors.btnTextColor || '#FFFFFF'
-        : variant === BUTTON_VARIANT.NO_BORDER && mode === 'dark' ? normalizedColors.btnTextColor || "#FFFFFF" : normalizedColors?.btnColor || normalizedColors?.themeColor || "#FFFFFF";
+        : variant === BUTTON_VARIANT.NO_BORDER && tcbsTheme === 'dark' ? normalizedColors.btnTextColor || "#FFFFFF" : normalizedColors?.btnColor || normalizedColors?.themeColor || "#FFFFFF";
 
     return {
       color: baseTextColor,

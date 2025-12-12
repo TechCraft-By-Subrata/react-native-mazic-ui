@@ -18,7 +18,7 @@ export type ThemeColors = {
 
 export interface ThemeStore {
   colors: ThemeColors;
-  mode: ThemeMode;
+  tcbsTheme: ThemeMode;
   setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => void;
   setTcbsTheme: (mode: ThemeMode) => void;
 }
@@ -40,9 +40,11 @@ const defaultColors: ThemeColors = {
   },
 };
 
-export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStore) => Partial<ThemeStore>) => void) => ({
+const defaultTheme: ThemeMode = 'light';
+
+export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStore) => Partial<ThemeStore>) => void, get) => ({
   colors: defaultColors,
-  mode: 'light',
+  tcbsTheme: defaultTheme,
   setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => {
     set((state: ThemeStore) => {
       let newColors = { ...state.colors };
@@ -62,5 +64,5 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
       return { colors: newColors };
     });
   },
-  setTcbsTheme: (mode: ThemeMode) => set((state) => ({ ...state, mode })),
+  setTcbsTheme: (newTheme: ThemeMode) => set(() =>  ({ tcbsTheme: newTheme })) 
 }));

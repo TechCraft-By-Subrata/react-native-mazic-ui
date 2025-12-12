@@ -13,13 +13,13 @@
     "react-native-vector-icons"
   ],
   "author": "TechCraft By Subrata <subraatakumar@gmail.com>",
-  "version": "0.1.1",
-    "publishConfig": {
+  "version": "0.1.0",
+  "publishConfig": {
     "access": "public"
   },
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
-  "types": "lib/types/index.d.ts",
+  "types": "lib/index.d.ts",
   "react-native": "src/index.ts",
   "files": [
     "lib/",
