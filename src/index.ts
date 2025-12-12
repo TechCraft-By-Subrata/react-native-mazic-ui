@@ -12,3 +12,4 @@ export {
 	IconComponentType,
 } from './components/TcbsButton.types';
 export { useTcbsColorStore } from './store/themeStore';
+export {ThemeModal} from './components/ThemeModal';
