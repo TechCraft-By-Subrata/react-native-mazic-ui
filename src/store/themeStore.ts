@@ -1,9 +1,11 @@
 import { create } from 'zustand';
 import { Appearance } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
+
 // MMKV instance for theme persistence
 const storage = new MMKV();
 const THEME_KEY = 'tcbsTheme';
+
 // Store the listener subscription so we can remove it
 let appearanceListener: { remove: () => void } | null = null;
 
@@ -14,6 +16,21 @@ export type ThemeColor = {
   themeColor: string;
   btnTextColor: string;
   screenBgColor?: string;
+  modalBgColor?: string;
+  modalHeaderBgColor?: string;
+  modalCardBgColor?: string;
+  textPrimary?: string;
+  textSecondary?: string;
+  borderColor?: string;
+  dividerColor?: string;
+  inputBgColor?: string;
+  inputBorderColor?: string;
+  cardBgColor?: string;
+  cardBorderColor?: string;
+  accentColor?: string;
+  errorColor?: string;
+  successColor?: string;
+  warningColor?: string;
 };
 
 export type ThemeMode = 'light' | 'dark' | 'system';
@@ -30,27 +47,70 @@ export interface ThemeStore {
   setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => void;
   setTcbsTheme: (mode: ThemeMode) => void;
   toggleTcbsTheme: () => void;
+  setMazicColor: (baseColor: string) => void;
 }
 
 const defaultColors: ThemeColors = {
   light: {
-    // btnColor: '#007AFF',
-    // btnBorderColor: '#007AFF',
-    // btnIconColor: '#16a62bff',
-    // themeColor: '#007AFF',
-    // btnTextColor: '#FFFFFF',
+    // You can set initial defaults here if needed, or leave them empty
+    btnColor: '#007AFF',
+    btnBorderColor: '#007AFF',
+    btnIconColor: '#FFFFFF',
+    themeColor: '#007AFF',
+    btnTextColor: '#FFFFFF',
   },
   dark: {
-    // btnColor: '#222222',
-    // btnBorderColor: '#222222',
-    // btnIconColor: '#FFFFFF',
-    // themeColor: '#222222',
-    // btnTextColor: '#FFFFFF',
+    btnColor: '#222222',
+    btnBorderColor: '#222222',
+    btnIconColor: '#FFFFFF',
+    themeColor: '#222222',
+    btnTextColor: '#FFFFFF',
   },
 };
 
 // Try to load persisted theme, fallback to 'light'. If 'system', use current system color scheme.
 const defaultTheme = storage.getString(THEME_KEY) as ThemeMode | undefined || 'light';
+
+// Helper functions for color manipulation
+const hexToRgb = (hex: string): { r: number; g: number; b: number } | null => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+};
+
+const rgbToHex = (r: number, g: number, b: number): string => {
+  return '#' + [r, g, b].map(x => {
+    const hex = Math.round(x).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  }).join('');
+};
+
+const adjustBrightness = (hex: string, percent: number): string => {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return hex;
+  
+  const adjust = (value: number) => Math.max(0, Math.min(255, value + (255 * percent / 100)));
+  return rgbToHex(adjust(rgb.r), adjust(rgb.g), adjust(rgb.b));
+};
+
+// NEW HELPER: Determines if a color is dark enough to require white text
+const isColorDark = (hex: string): boolean => {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return true; // Default to white text if color is invalid
+  // Calculate Luma (YIQ method is good for perceived brightness)
+  // Formula: (R * 299 + G * 587 + B * 114) / 1000
+  const luma = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+  // Threshold 0.45 is slightly lower than standard 0.5, favoring white text
+  return luma < 0.45;
+};
+
+const addAlpha = (hex: string, alpha: number): string => {
+  const alphaHex = Math.round(alpha * 255).toString(16).padStart(2, '0');
+  return hex + alphaHex;
+};
 
 
 export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStore) => Partial<ThemeStore>) => void, get) => {
@@ -131,12 +191,99 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         const themes: ThemeMode[] = ['light', 'dark', 'system'];
         const currentIdx = themes.indexOf(state.tcbsTheme);
         const nextTheme = themes[(currentIdx + 1) % themes.length];
-        // Call setTcbsTheme to handle all logic and side effects
-        // Note: setTcbsTheme will update state, so we don't need to return anything here
-        // But zustand requires a return, so we return {}.
+        // Note: setTcbsTheme is called outside the state update, but here it's called internally
+        // which is a common pattern in zustand actions.
         // @ts-ignore
         state.setTcbsTheme(nextTheme);
         return {};
+      });
+    },
+    
+    // REWRITTEN FUNCTION using hardcoded neutrals for better UI contrast
+    setMazicColor: (baseColor: string) => {
+      // Determine the best text color for the button based on the base color's brightness
+      const buttonTextColor = isColorDark(baseColor) ? '#FFFFFF' : '#000000';
+      const secondaryBaseColor = adjustBrightness(baseColor, -10); // A slightly darker shade for accents
+
+      // --- Light Theme Palette ---
+      const lightColors: ThemeColor = {
+        // Primary & Button Colors (baseColor is the accent)
+        btnColor: baseColor,
+        btnBorderColor: baseColor,
+        btnIconColor: buttonTextColor,
+        themeColor: baseColor,
+        btnTextColor: buttonTextColor,
+
+        // Backgrounds (Clean white/near-white neutrals)
+        screenBgColor: '#FFFFFF', // Pure white
+        modalBgColor: addAlpha('#000000', 0.5), // Standard dark overlay
+        modalHeaderBgColor: '#F0F0F0', // Light gray
+        modalCardBgColor: '#FAFAFA', // Off-white for cards/modals
+
+        // Text Colors (High contrast black/dark gray)
+        textPrimary: '#1F1F1F', // Very dark gray
+        textSecondary: '#6B7280', // Medium gray
+
+        // Borders & Dividers (Very subtle grays)
+        borderColor: '#E5E7EB',
+        dividerColor: '#F3F4F6',
+
+        // Inputs & Cards
+        inputBgColor: '#FFFFFF',
+        inputBorderColor: '#D1D5DB',
+        cardBgColor: '#FFFFFF',
+        cardBorderColor: '#E5E7EB',
+
+        // Status Colors (Standard, high-contrast semantic colors)
+        accentColor: secondaryBaseColor,
+        errorColor: '#DC2626',
+        successColor: '#16A34A',
+        warningColor: '#F59E0B',
+      };
+
+      // --- Dark Theme Palette ---
+      const darkColors: ThemeColor = {
+        // Primary & Button Colors
+        btnColor: baseColor,
+        btnBorderColor: baseColor,
+        btnIconColor: '#FFFFFF',
+        themeColor: baseColor,
+        btnTextColor: '#FFFFFF',
+
+        // Backgrounds (Clean dark/near-black neutrals)
+        screenBgColor: '#121212', // Very dark gray
+        modalBgColor: addAlpha('#000000', 0.8), // Darker overlay
+        modalHeaderBgColor: '#1F1F1F', // Slightly lighter dark gray
+        modalCardBgColor: '#2C2C2C', // Medium dark gray for cards/modals
+
+        // Text Colors (High contrast white/light gray)
+        textPrimary: '#FFFFFF', // Pure white
+        textSecondary: '#A0A0A0', // Light gray
+
+        // Borders & Dividers (Subtle dark grays)
+        borderColor: '#374151',
+        dividerColor: '#2C2C2C',
+
+        // Inputs & Cards
+        inputBgColor: '#1F1F1F',
+        inputBorderColor: '#374151',
+        cardBgColor: '#1F1F1F',
+        cardBorderColor: '#374151',
+
+        // Status Colors (Brighter semantic colors for dark background)
+        accentColor: secondaryBaseColor,
+        errorColor: '#EF4444',
+        successColor: '#22C55E',
+        warningColor: '#FBBF24',
+      };
+      
+      set((state: ThemeStore) => {
+        const newColors = {
+          light: lightColors,
+          dark: darkColors,
+        };
+        const themeColors = getThemeColors(state.tcbsTheme, newColors);
+        return { colors: newColors, themeColors };
       });
     }
   };

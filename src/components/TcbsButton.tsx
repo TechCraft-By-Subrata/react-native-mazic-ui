@@ -72,12 +72,10 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   accessibilityHint,
   accessibilityRole = 'button',
   accessibilityState,
-  themeColor,
-  screenBgColor,
 }) => {
   // Use themeColors from store if not provided as prop
   const { themeColors, tcbsTheme } = useTcbsColorStore();
-  const effectiveThemeColor = themeColor ?? themeColors;
+  const effectiveThemeColor = themeColors;
   // Normalize colors: if only one color is set, use it for all
   const normalizedColors = {
     btnColor: effectiveThemeColor?.btnColor ?? effectiveThemeColor?.themeColor ?? '#007AFF',
@@ -146,7 +144,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     <IconComponent
       name={iconName!}
       size={iconSize || FONT_SIZES[size] * 2}
-      color={iconColor || normalizedColors.btnIconColor || themedTextStyle.color}
+      color={iconColor || themedTextStyle.color}
       style={
         iconPosition === 'top'
           ? { marginBottom: 2 }
