@@ -15,6 +15,11 @@ export type ThemeColor = {
   btnIconColor?: string;
   themeColor: string;
   btnTextColor: string;
+  tabBarIconActiveColor?: string;
+  tabBarIconInactiveColor?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+  tertiaryColor?: string;
   screenBgColor?: string;
   modalBgColor?: string;
   modalHeaderBgColor?: string;
@@ -44,6 +49,11 @@ export interface ThemeStore {
   colors: ThemeColors;
   tcbsTheme: ThemeMode;
   themeColors: ThemeColor;
+  /**
+   * Returns the current theme as 'light' or 'dark' (never 'system').
+   * If tcbsTheme is 'system', resolves to the current system color scheme.
+   */
+  currentThemeMode: 'light' | 'dark';
   setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => void;
   setTcbsTheme: (mode: ThemeMode) => void;
   toggleTcbsTheme: () => void;
@@ -143,6 +153,15 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
     colors: initialColors,
     tcbsTheme: initialTheme,
     themeColors: initialThemeColors,
+    get currentThemeMode() {
+      const state = get();
+      if (state.tcbsTheme === 'light' || state.tcbsTheme === 'dark') {
+        return state.tcbsTheme;
+      }
+      // system: use Appearance API
+      const colorScheme = Appearance.getColorScheme?.() || 'light';
+      return (colorScheme === 'dark' ? 'dark' : 'light');
+    },
     setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => {
       set((state: ThemeStore) => {
         let newColors = { ...state.colors };
@@ -214,6 +233,13 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         themeColor: baseColor,
         btnTextColor: buttonTextColor,
 
+        tabBarIconActiveColor: buttonTextColor,
+        tabBarIconInactiveColor: addAlpha("#000000",0.4),
+
+        primaryColor:  addAlpha(baseColor,1),
+        secondaryColor: addAlpha(baseColor,0.7),
+        tertiaryColor: addAlpha(baseColor,0.1),
+
         // Backgrounds (Clean white/near-white neutrals)
         screenBgColor: addAlpha(baseColor,0.1), // Pure white
         modalBgColor: addAlpha('#000000', 0.5), // Standard dark overlay
@@ -249,6 +275,12 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         btnIconColor: buttonTextColor,
         themeColor: baseColor,
         btnTextColor: buttonTextColor,
+
+        tabBarIconActiveColor: buttonTextColor,
+        tabBarIconInactiveColor: addAlpha("#000000",0.4),
+        primaryColor:  addAlpha(baseColor,1),
+        secondaryColor: addAlpha(baseColor,0.7),
+        tertiaryColor: addAlpha(baseColor,0.2),
 
         // Backgrounds (Clean dark/near-black neutrals)
         screenBgColor: addAlpha(baseColor,0.8), // Very dark gray
