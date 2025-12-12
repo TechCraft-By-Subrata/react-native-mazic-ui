@@ -1,4 +1,11 @@
 import { create } from 'zustand';
+import { Appearance } from 'react-native';
+import { MMKV } from 'react-native-mmkv';
+// MMKV instance for theme persistence
+const storage = new MMKV();
+const THEME_KEY = 'tcbsTheme';
+// Store the listener subscription so we can remove it
+let appearanceListener: { remove: () => void } | null = null;
 
 export type ThemeColor = {
   btnColor: string;
@@ -9,7 +16,7 @@ export type ThemeColor = {
   screenBgColor?: string;
 };
 
-export type ThemeMode = 'light' | 'dark';
+export type ThemeMode = 'light' | 'dark' | 'system';
 
 export type ThemeColors = {
   light: ThemeColor;
@@ -40,7 +47,15 @@ const defaultColors: ThemeColors = {
   },
 };
 
-const defaultTheme: ThemeMode = 'light';
+// Try to load persisted theme, fallback to 'light'. If 'system', use current system color scheme.
+const persistedTheme = storage.getString(THEME_KEY) as ThemeMode | undefined;
+let defaultTheme: ThemeMode = 'light';
+if (persistedTheme === 'system') {
+  const colorScheme = Appearance.getColorScheme();
+  defaultTheme = colorScheme === 'dark' ? 'dark' : 'light';
+} else if (persistedTheme === 'light' || persistedTheme === 'dark') {
+  defaultTheme = persistedTheme;
+}
 
 export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStore) => Partial<ThemeStore>) => void, get) => ({
   colors: defaultColors,
@@ -64,5 +79,22 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
       return { colors: newColors };
     });
   },
-  setTcbsTheme: (newTheme: ThemeMode) => set(() =>  ({ tcbsTheme: newTheme })) 
+  setTcbsTheme: (newTheme: ThemeMode) => {
+    // Persist user selection
+    storage.set(THEME_KEY, newTheme);
+    // Remove previous listener if exists
+    if (appearanceListener) {
+      appearanceListener.remove();
+      appearanceListener = null;
+    }
+    if (newTheme === 'system') {
+      const colorScheme = Appearance.getColorScheme();
+      set(() => ({ tcbsTheme: colorScheme === 'dark' ? 'dark' : 'light' }));
+      appearanceListener = Appearance.addChangeListener(({ colorScheme }) => {
+        set(() => ({ tcbsTheme: colorScheme === 'dark' ? 'dark' : 'light' }));
+      });
+    } else {
+      set(() => ({ tcbsTheme: newTheme }));
+    }
+  }
 }));
