@@ -48,14 +48,8 @@ const defaultColors: ThemeColors = {
 };
 
 // Try to load persisted theme, fallback to 'light'. If 'system', use current system color scheme.
-const persistedTheme = storage.getString(THEME_KEY) as ThemeMode | undefined;
-let defaultTheme: ThemeMode = 'light';
-if (persistedTheme === 'system') {
-  const colorScheme = Appearance.getColorScheme();
-  defaultTheme = colorScheme === 'dark' ? 'dark' : 'light';
-} else if (persistedTheme === 'light' || persistedTheme === 'dark') {
-  defaultTheme = persistedTheme;
-}
+const defaultTheme = storage.getString(THEME_KEY) as ThemeMode | undefined || 'light';
+
 
 export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStore) => Partial<ThemeStore>) => void, get) => ({
   colors: defaultColors,
@@ -87,14 +81,6 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
       appearanceListener.remove();
       appearanceListener = null;
     }
-    if (newTheme === 'system') {
-      const colorScheme = Appearance.getColorScheme();
-      set(() => ({ tcbsTheme: colorScheme === 'dark' ? 'dark' : 'light' }));
-      appearanceListener = Appearance.addChangeListener(({ colorScheme }) => {
-        set(() => ({ tcbsTheme: colorScheme === 'dark' ? 'dark' : 'light' }));
-      });
-    } else {
-      set(() => ({ tcbsTheme: newTheme }));
-    }
+    set(() => ({ tcbsTheme: newTheme }));
   }
 }));
