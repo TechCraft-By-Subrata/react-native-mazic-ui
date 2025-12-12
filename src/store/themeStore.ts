@@ -29,6 +29,7 @@ export interface ThemeStore {
   themeColors: ThemeColor;
   setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => void;
   setTcbsTheme: (mode: ThemeMode) => void;
+  toggleTcbsTheme: () => void;
 }
 
 const defaultColors: ThemeColors = {
@@ -124,6 +125,19 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         tcbsTheme: newTheme,
         themeColors: getThemeColors(newTheme, state.colors)
       }));
+    },
+    toggleTcbsTheme: () => {
+      set((state: ThemeStore) => {
+        const themes: ThemeMode[] = ['light', 'dark', 'system'];
+        const currentIdx = themes.indexOf(state.tcbsTheme);
+        const nextTheme = themes[(currentIdx + 1) % themes.length];
+        // Call setTcbsTheme to handle all logic and side effects
+        // Note: setTcbsTheme will update state, so we don't need to return anything here
+        // But zustand requires a return, so we return {}.
+        // @ts-ignore
+        state.setTcbsTheme(nextTheme);
+        return {};
+      });
     }
   };
 });
