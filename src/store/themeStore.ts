@@ -24,6 +24,7 @@ export type ThemeColor = {
   screenBgColor?: string;
   modalHeaderBgColor?: string;
   modalCardBgColor?: string;
+  modalTitleColor?: string;
   textPrimary?: string;
   textSecondary?: string;
   borderColor?: string;
@@ -101,8 +102,14 @@ const rgbToHex = (r: number, g: number, b: number): string => {
 const adjustBrightness = (hex: string, percent: number): string => {
   const rgb = hexToRgb(hex);
   if (!rgb) return hex;
-  
-  const adjust = (value: number) => Math.max(0, Math.min(255, value + (255 * percent / 100)));
+  // percent > 0: lighten, percent < 0: darken
+  const adjust = (value: number) => {
+    if (percent > 0) {
+      return Math.round(value + (255 - value) * (percent / 100));
+    } else {
+      return Math.round(value * (1 + percent / 100));
+    }
+  };
   return rgbToHex(adjust(rgb.r), adjust(rgb.g), adjust(rgb.b));
 };
 
@@ -237,15 +244,15 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         tabBarIconActiveColor: buttonTextColor,
         tabBarIconInactiveColor: addAlpha("#000000",0.4),
 
-        // modalBgColor: addAlpha(baseColor, 1), // Standard dark overlay
-
+        // modalBgColor: 80% lighter than baseColor
         primaryColor:  addAlpha(baseColor,1),
         secondaryColor: addAlpha(baseColor,0.7),
         tertiaryColor: addAlpha(baseColor,0.1),
 
         // Backgrounds (Clean white/near-white neutrals)
         screenBgColor: addAlpha(baseColor,0.1), // Pure white
-        modalBgColor: addAlpha(baseColor, 1), // Standard dark overlay
+        modalBgColor: adjustBrightness(baseColor, 10), // 80% lighter tone
+        modalTitleColor: adjustBrightness(baseColor, 90),
         modalHeaderBgColor: '#F0F0F0', // Light gray
         modalCardBgColor: '#FAFAFA', // Off-white for cards/modals
 
@@ -282,15 +289,13 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         tabBarIconActiveColor: buttonTextColor,
         tabBarIconInactiveColor: addAlpha("#000000",0.4),
 
-        modalBgColor: addAlpha(baseColor, 1),
-
         primaryColor:  addAlpha(baseColor,1),
         secondaryColor: addAlpha(baseColor,0.7),
         tertiaryColor: addAlpha(baseColor,0.2),
 
         // Backgrounds (Clean dark/near-black neutrals)
         screenBgColor: addAlpha(baseColor,0.8), // Very dark gray
-        modalBgColor: addAlpha('#000000', 0.8), // Darker overlay
+        modalBgColor: adjustBrightness(baseColor, 80), // Darker overlay
         modalHeaderBgColor: '#1F1F1F', // Slightly lighter dark gray
         modalCardBgColor: '#2C2C2C', // Medium dark gray for cards/modals
 

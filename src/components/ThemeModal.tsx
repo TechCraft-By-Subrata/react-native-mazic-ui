@@ -16,7 +16,7 @@ export const ThemeModal: React.FC<ThemeModalProps> = ({ visible, onClose }) => {
   // You can customize these colors or get them from your theme
   const colors = {
     menuCardBkgColor: themeColors.screenBgColor || '#fff',
-    textDark: themeColors.btnTextColor || '#222',
+    textDark: themeColors.modalTitleColor || '#222',
     textGray: '#888',
   };
 
@@ -44,7 +44,7 @@ export const ThemeModal: React.FC<ThemeModalProps> = ({ visible, onClose }) => {
             />
           </View>
           <Text style={[styles.modalTitle, { color: colors.textDark }]}>Theme</Text>
-          <Text style={[styles.modalSubtitle, { color: colors.textGray }]}>Choose how the app looks on this device.</Text>
+          <Text style={[styles.modalSubtitle, { color: colors.textDark }]}>Choose how the app looks on this device.</Text>
           <View style={{ marginTop: 18 }}>
             <TcbsButton
               title="Light"
