@@ -28,13 +28,14 @@ export const ThemeModal: React.FC<ThemeModalProps> = ({ visible, onClose }) => {
       onRequestClose={onClose}
     >
       <Pressable style={styles.modalOverlay} onPress={onClose}>
-        <Pressable style={[styles.modalCard, { backgroundColor: colors.menuCardBkgColor }]}
+        <Pressable style={[styles.modalCard, { backgroundColor: themeColors.modalBgColor || "#00000080" }]}
           onPress={() => {}} // Prevent closing when pressing inside card
         >
           <View style={styles.modalClose}>
             <TcbsButton
               onPress={onClose}
               iconName="close"
+              iconColor={colors.textDark}
               iconPosition="left"
               variant={BUTTON_VARIANT.NO_BORDER}
               iconSize={22}
@@ -93,11 +94,11 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 24,
     alignItems: 'stretch',
-    shadowColor: '#000',
-    shadowOpacity: 0.15,
+    // shadowColor: '#000',
+    // shadowOpacity: 0.15,
     shadowRadius: 12,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 4,
+    // shadowOffset: { width: 0, height: 4 },
+    // elevation: 4,
   },
   modalClose: {
     position: 'absolute',

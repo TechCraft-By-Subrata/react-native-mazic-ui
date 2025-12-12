@@ -17,11 +17,11 @@ export type ThemeColor = {
   btnTextColor: string;
   tabBarIconActiveColor?: string;
   tabBarIconInactiveColor?: string;
+  modalBgColor?: string;
   primaryColor?: string;
   secondaryColor?: string;
   tertiaryColor?: string;
   screenBgColor?: string;
-  modalBgColor?: string;
   modalHeaderBgColor?: string;
   modalCardBgColor?: string;
   textPrimary?: string;
@@ -237,13 +237,15 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         tabBarIconActiveColor: buttonTextColor,
         tabBarIconInactiveColor: addAlpha("#000000",0.4),
 
+        // modalBgColor: addAlpha(baseColor, 1), // Standard dark overlay
+
         primaryColor:  addAlpha(baseColor,1),
         secondaryColor: addAlpha(baseColor,0.7),
         tertiaryColor: addAlpha(baseColor,0.1),
 
         // Backgrounds (Clean white/near-white neutrals)
         screenBgColor: addAlpha(baseColor,0.1), // Pure white
-        modalBgColor: addAlpha('#000000', 0.5), // Standard dark overlay
+        modalBgColor: addAlpha(baseColor, 1), // Standard dark overlay
         modalHeaderBgColor: '#F0F0F0', // Light gray
         modalCardBgColor: '#FAFAFA', // Off-white for cards/modals
 
@@ -279,6 +281,9 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
 
         tabBarIconActiveColor: buttonTextColor,
         tabBarIconInactiveColor: addAlpha("#000000",0.4),
+
+        modalBgColor: addAlpha(baseColor, 1),
+
         primaryColor:  addAlpha(baseColor,1),
         secondaryColor: addAlpha(baseColor,0.7),
         tertiaryColor: addAlpha(baseColor,0.2),
