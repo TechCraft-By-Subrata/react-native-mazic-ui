@@ -26,6 +26,7 @@ export type ThemeColors = {
 export interface ThemeStore {
   colors: ThemeColors;
   tcbsTheme: ThemeMode;
+  themeColors: ThemeColor;
   setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => void;
   setTcbsTheme: (mode: ThemeMode) => void;
 }
@@ -51,36 +52,78 @@ const defaultColors: ThemeColors = {
 const defaultTheme = storage.getString(THEME_KEY) as ThemeMode | undefined || 'light';
 
 
-export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStore) => Partial<ThemeStore>) => void, get) => ({
-  colors: defaultColors,
-  tcbsTheme: defaultTheme,
-  setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => {
-    set((state: ThemeStore) => {
-      let newColors = { ...state.colors };
-      // If colors for both themes are provided
-      if (colors.light || colors.dark) {
-        if (colors.light) {
-          newColors.light = { ...newColors.light, ...colors.light };
-        }
-        if (colors.dark) {
-          newColors.dark = { ...newColors.dark, ...colors.dark };
-        }
-      } else {
-        // If only one set, update both themes
-        newColors.light = { ...newColors.light, ...colors };
-        newColors.dark = { ...newColors.dark, ...colors };
-      }
-      return { colors: newColors };
-    });
-  },
-  setTcbsTheme: (newTheme: ThemeMode) => {
-    // Persist user selection
-    storage.set(THEME_KEY, newTheme);
-    // Remove previous listener if exists
-    if (appearanceListener) {
-      appearanceListener.remove();
-      appearanceListener = null;
+export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStore) => Partial<ThemeStore>) => void, get) => {
+  // Helper to get the current theme color
+  const getThemeColors = (theme: ThemeMode, colors: ThemeColors): ThemeColor => {
+    if (theme === 'light' || theme === 'dark') {
+      return colors[theme];
+    } else {
+      // system: use Appearance API
+      const colorScheme = Appearance.getColorScheme?.() || 'light';
+      return colors[colorScheme as 'light' | 'dark'] || colors.light;
     }
-    set(() => ({ tcbsTheme: newTheme }));
+  };
+
+  // Initial state
+  const initialColors = defaultColors;
+  const initialTheme = defaultTheme;
+  const initialThemeColors = getThemeColors(initialTheme, initialColors);
+
+  // Listen to system theme changes if needed
+  if (initialTheme === 'system' && !appearanceListener) {
+    appearanceListener = Appearance.addChangeListener?.(({ colorScheme }) => {
+      set((state: ThemeStore) => ({
+        themeColors: state.colors[(colorScheme as 'light' | 'dark') || 'light']
+      }));
+    });
   }
-}));
+
+  return {
+    colors: initialColors,
+    tcbsTheme: initialTheme,
+    themeColors: initialThemeColors,
+    setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => {
+      set((state: ThemeStore) => {
+        let newColors = { ...state.colors };
+        // If colors for both themes are provided
+        if (colors.light || colors.dark) {
+          if (colors.light) {
+            newColors.light = { ...newColors.light, ...colors.light };
+          }
+          if (colors.dark) {
+            newColors.dark = { ...newColors.dark, ...colors.dark };
+          }
+        } else {
+          // If only one set, update both themes
+          newColors.light = { ...newColors.light, ...colors };
+          newColors.dark = { ...newColors.dark, ...colors };
+        }
+        // Update themeColors as well
+        const themeColors = getThemeColors(state.tcbsTheme, newColors);
+        return { colors: newColors, themeColors };
+      });
+    },
+    setTcbsTheme: (newTheme: ThemeMode) => {
+      // Persist user selection
+      storage.set(THEME_KEY, newTheme);
+      // Remove previous listener if exists
+      if (appearanceListener) {
+        appearanceListener.remove();
+        appearanceListener = null;
+      }
+      // If new theme is system, add listener
+      if (newTheme === 'system') {
+        appearanceListener = Appearance.addChangeListener?.(({ colorScheme }) => {
+          set((state: ThemeStore) => ({
+            themeColors: state.colors[(colorScheme as 'light' | 'dark') || 'light']
+          }));
+        });
+      }
+      // Update themeColors as well
+      set((state: ThemeStore) => ({
+        tcbsTheme: newTheme,
+        themeColors: getThemeColors(newTheme, state.colors)
+      }));
+    }
+  };
+});
