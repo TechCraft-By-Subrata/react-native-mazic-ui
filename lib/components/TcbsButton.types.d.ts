@@ -20,6 +20,8 @@ export declare const BORDER_RADIUS: {
     readonly SMALL: 8;
     readonly MEDIUM: 12;
     readonly LARGE: 16;
+    readonly NONE: 0;
+    readonly FULL: "50%";
 };
 export type ButtonSize = (typeof BUTTON_SIZE)[keyof typeof BUTTON_SIZE];
 export type ButtonVariant = (typeof BUTTON_VARIANT)[keyof typeof BUTTON_VARIANT];
@@ -45,8 +47,11 @@ export interface TcbsButtonProps {
     accessibilityState?: AccessibilityState;
     themeColor?: {
         btnColor?: string;
+        btnBorderColor?: string;
+        btnIconColor?: string;
         themeColor?: string;
         btnTextColor?: string;
         btnTxtColor?: string;
     };
+    screenBgColor?: string;
 }
