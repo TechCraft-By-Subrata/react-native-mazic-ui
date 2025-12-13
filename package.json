@@ -34,7 +34,8 @@
     "react": ">=17.0.0",
     "react-native": ">=0.68.0",
     "react-native-vector-icons": ">=10.2.0",
-    "react-error-boundary": ">=5.0.0"
+    "react-error-boundary": ">=5.0.0",
+    "@tcbs/react-native-exception-handler": "1.0.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
