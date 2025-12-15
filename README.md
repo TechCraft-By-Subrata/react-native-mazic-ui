@@ -1,5 +1,12 @@
 # @tcbs/react-native-mazic-ui
 
+![npm](https://img.shields.io/npm/v/@tcbs/react-native-mazic-ui)
+![downloads](https://img.shields.io/npm/dw/@tcbs/react-native-mazic-ui)
+![license](https://img.shields.io/npm/l/@tcbs/react-native-mazic-ui)
+[
+  ![Docs](https://img.shields.io/badge/docs-UI%20Docs-blue?logo=readthedocs&logoColor=white&style=flat-square)
+](https://tcbscli.subraatakumar.com/ui-home/)
+
 A customizable React Native UI component library.
 
 ## Installation
@@ -11,6 +18,36 @@ npm install @tcbs/react-native-mazic-ui @tcbs/react-native-exception-handler
 ```sh
 yarn add @tcbs/react-native-mazic-ui @tcbs/react-native-exception-handler
 ```
+
+
+## Error Handling: AppErrorBoundary
+
+`AppErrorBoundary` is a React error boundary component for catching and displaying errors in your app. It supports custom fallback UIs for both development and production modes.
+
+### Quick Usage
+
+```tsx
+import { AppErrorBoundary } from '@tcbs/react-native-mazic-ui';
+
+<AppErrorBoundary>
+  <YourApp/>
+</AppErrorBoundary>
+```
+
+You can also provide custom fallback UIs for dev and prod:
+
+```tsx
+<AppErrorBoundary
+  fallbackDev={<Text>DEV: Something went wrong.</Text>}
+  fallbackProd={<Text>PROD: Please try again later.</Text>}
+>
+  <YourApp/>
+</AppErrorBoundary>
+```
+
+For full details and advanced usage, see [docs](https://tcbscli.subraatakumar.com/ui-home/apperrorboundary).
+
+---
 
 ## Theme Setup Example
 

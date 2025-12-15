@@ -12,6 +12,8 @@ setupGlobalExceptionHandlers();
 
 export interface AppErrorBoundaryProps {
   children?: React.ReactNode;
+  fallbackDev?: React.ReactNode;
+  fallbackProd?: React.ReactNode;
 }
 
 export interface AppErrorBoundaryState {
@@ -33,6 +35,15 @@ export class AppErrorBoundary extends React.Component<AppErrorBoundaryProps, App
     error: null,
     reactError: null,
     errorInfo: null,
+  };
+
+  handleReset = () => {
+    this.setState({
+      hasError: false,
+      error: null,
+      reactError: null,
+      errorInfo: null,
+    });
   };
 
   static getDerivedStateFromError(error: any) {
@@ -57,11 +68,19 @@ export class AppErrorBoundary extends React.Component<AppErrorBoundaryProps, App
 
   renderDevError() {
     const { error, reactError, errorInfo } = this.state;
+    const { fallbackDev } = this.props;
+
+    if (fallbackDev) {
+      // Custom fallback for DEV
+      return typeof fallbackDev === 'function'
+        ? fallbackDev({ error, errorInfo, reset: this.handleReset })
+        : fallbackDev;
+    }
 
     if (!error) return null;
 
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, marginBottom: 40 }}>
         <ScrollView style={styles.container}>
           <Text style={styles.title}>🚨 Application Error (DEV)</Text>
 
@@ -85,18 +104,39 @@ export class AppErrorBoundary extends React.Component<AppErrorBoundaryProps, App
               {errorInfo?.componentStack}
             </Text>
           </Section>
+          {/* Try Again Button */}
+          <View style={styles.buttonContainer}>
+            <Text style={styles.tryAgainButton} onPress={this.handleReset}>
+              🔄 Try Again
+            </Text>
+          </View>
         </ScrollView>
       </SafeAreaView>
     );
   }
 
   renderProdError() {
+    const { fallbackProd } = this.props;
+    const { error, errorInfo } = this.state;
+
+    if (fallbackProd) {
+      // Custom fallback for PROD
+      return typeof fallbackProd === 'function'
+        ? fallbackProd({ error, errorInfo, reset: this.handleReset })
+        : fallbackProd;
+    }
+
     return (
       <View style={styles.prodContainer}>
         <Text style={styles.prodTitle}>Something went wrong</Text>
         <Text style={styles.prodSubtitle}>
           Please restart the application.
         </Text>
+        <View style={styles.buttonContainer}>
+          <Text style={styles.tryAgainButton} onPress={this.handleReset}>
+            🔄 Try Again
+          </Text>
+        </View>
       </View>
     );
   }
@@ -129,7 +169,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0f172a',
-    padding: 16,
+    // padding: 36,
   },
   title: {
     fontSize: 18,
@@ -175,5 +215,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
     textAlign: 'center',
+  },
+  buttonContainer: {
+    marginTop: 24,
+    alignItems: 'center',
+  },
+  tryAgainButton: {
+    backgroundColor: '#38bdf8',
+    color: '#fff',
+    paddingVertical: 10,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    fontWeight: '700',
+    fontSize: 16,
+    overflow: 'hidden',
   },
 });

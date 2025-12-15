@@ -13,7 +13,7 @@
     "react-native-vector-icons"
   ],
   "author": "TechCraft By Subrata <subraatakumar@gmail.com>",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "publishConfig": {
     "access": "public"
   },
@@ -36,8 +36,7 @@
     "@tcbs/react-native-exception-handler": "1.0.0"
   },
   "dependencies": {
-    "react-native-vector-icons": ">=10.2.0",
-    "react-error-boundary": ">=5.0.0"
+    "react-native-vector-icons": ">=10.2.0"
   },  
   "devDependencies": {
     "@types/react": "^17.0.0",
