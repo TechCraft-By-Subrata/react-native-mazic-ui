@@ -14,3 +14,5 @@ export {
 export { useTcbsColorStore } from './store/themeStore';
 export {ThemeModal} from './components/ThemeModal';
 export {AppErrorBoundary} from './components/error/AppErrorBoundary';
+export {TcbsCard} from './components/CustomCard';
+export {TcbsText} from './components/CustomText';
