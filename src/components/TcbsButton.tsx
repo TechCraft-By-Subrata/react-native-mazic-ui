@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 import { Appearance } from 'react-native';
 import { TouchableOpacity, Text, View ,  StyleProp, ViewStyle, TextStyle } from 'react-native';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Feather from 'react-native-vector-icons/Feather';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Foundation from 'react-native-vector-icons/Foundation';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialDesignIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Octicons from 'react-native-vector-icons/Octicons';
-// import Lucide from 'react-native-vector-icons/Lucide';
+import { AntDesign } from '@react-native-vector-icons/ant-design/static';
+import { Feather } from '@react-native-vector-icons/feather/static';
+import { FontAwesome } from '@react-native-vector-icons/fontawesome/static';
+import { Foundation } from '@react-native-vector-icons/foundation/static';
+import { Ionicons } from '@react-native-vector-icons/ionicons/static';
+import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons/static';
+import { Octicons } from '@react-native-vector-icons/octicons/static';
+import { MaterialIcons } from '@react-native-vector-icons/material-icons/static';
 import {
   BUTTON_SIZE,
   BUTTON_VARIANT,
@@ -66,7 +66,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   style,
   textStyle,
   iconName,
-  iconGroup = 'MaterialDesignIcons',
+  iconGroup = 'MaterialIcons',
   iconColor,
   iconSize,
   iconPosition = 'top',
@@ -210,7 +210,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
       iconGroup === 'MaterialDesignIcons' ? MaterialDesignIcons :
       iconGroup === 'Octicons' ? Octicons :
       // iconGroup === 'Lucide' ? Lucide : // Uncomment if Lucide is available
-      MaterialDesignIcons;
+      iconGroup === 'MaterialIcons' ? MaterialIcons : MaterialIcons;
 
     if (iconPosition === 'top') {
       return (

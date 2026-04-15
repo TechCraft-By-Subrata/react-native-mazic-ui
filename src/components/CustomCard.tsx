@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle, TextStyle, Pressable, GestureResponderEvent } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from '@react-native-vector-icons/ionicons/static';
 import { useTcbsColorStore } from '../store/themeStore';
 import CustomText from './CustomText';
 

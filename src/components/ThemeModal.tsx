@@ -1,8 +1,5 @@
 import React from 'react';
 import { Modal, Pressable, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
 import { useTcbsColorStore } from '../store/themeStore';
 import { BUTTON_VARIANT, TcbsButton } from './TcbsButton';
 
