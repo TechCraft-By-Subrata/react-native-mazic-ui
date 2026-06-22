@@ -16,13 +16,14 @@ Requires React Native `0.76+` because `react-native-mmkv` v4 uses Nitro Modules.
 This repository is configured for:
 
 - automatic docs-site deployment from `main`
-- automated npm publishing through GitHub Actions after a reviewed release PR is merged
+- automated npm publishing through GitHub Actions Trusted Publishing after a reviewed release PR is merged
 - explicit semver selection through Changesets instead of guessing version type from pushes
 
 ### Release policy
 
 - Use a changeset for every user-visible package change.
-- Use `patch` for fixes, `minor` for backward-compatible features, and `major` for breaking changes.
+- Default to `patch` for routine publishing and non-breaking fixes.
+- Use `minor` for backward-compatible features and `major` for breaking changes.
 - `major` releases should receive explicit maintainer review before merging the generated release PR.
 
 ### Common maintainer commands
@@ -35,7 +36,7 @@ npm run release
 
 ### One-time GitHub setup
 
-- Add an `NPM_TOKEN` repository secret with publish access to `@tcbs/react-native-mazic-ui`.
+- Configure npm Trusted Publishing for `@tcbs/react-native-mazic-ui` against `TechCraft-By-Subrata/react-native-mazic-ui` and `.github/workflows/release.yml`.
 - Configure GitHub Pages to deploy from GitHub Actions.
 
 ## Installation

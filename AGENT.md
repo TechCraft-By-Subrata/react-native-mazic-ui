@@ -105,7 +105,9 @@ This is a public GitHub repository and a public npm package. Release automation 
 
 - Deploy the docs site automatically from `main` when docs or library changes are pushed.
 - Do not guess semver bump types from pushes alone.
+- Prefer npm Trusted Publishing with OIDC over long-lived npm publish tokens.
 - Use Changesets to choose `patch`, `minor`, or `major` intentionally for every user-visible package change.
+- Default to `patch` for routine publishing and non-breaking fixes unless the change clearly justifies `minor` or `major`.
 - Treat `patch` and `minor` releases as automation-friendly after explicit Changesets metadata is merged.
 - Treat `major` releases as requiring explicit maintainer review of the generated release PR before publishing.
 - When a change affects public package behavior, API, defaults, or guidance, update the relevant docs and ensure the release metadata reflects the impact.
