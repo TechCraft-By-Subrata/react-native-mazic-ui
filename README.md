@@ -9,6 +9,8 @@
 
 A customizable React Native UI component library.
 
+Requires React Native `0.76+` because `react-native-mmkv` v4 uses Nitro Modules.
+
 ## Installation
 
 ```sh

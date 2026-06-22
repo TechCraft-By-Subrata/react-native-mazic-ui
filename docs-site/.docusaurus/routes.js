@@ -3,6 +3,41 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/react-native-mazic-ui/__docusaurus/debug',
+    component: ComponentCreator('/react-native-mazic-ui/__docusaurus/debug', 'fde'),
+    exact: true
+  },
+  {
+    path: '/react-native-mazic-ui/__docusaurus/debug/config',
+    component: ComponentCreator('/react-native-mazic-ui/__docusaurus/debug/config', 'd7d'),
+    exact: true
+  },
+  {
+    path: '/react-native-mazic-ui/__docusaurus/debug/content',
+    component: ComponentCreator('/react-native-mazic-ui/__docusaurus/debug/content', '069'),
+    exact: true
+  },
+  {
+    path: '/react-native-mazic-ui/__docusaurus/debug/globalData',
+    component: ComponentCreator('/react-native-mazic-ui/__docusaurus/debug/globalData', '6d7'),
+    exact: true
+  },
+  {
+    path: '/react-native-mazic-ui/__docusaurus/debug/metadata',
+    component: ComponentCreator('/react-native-mazic-ui/__docusaurus/debug/metadata', '783'),
+    exact: true
+  },
+  {
+    path: '/react-native-mazic-ui/__docusaurus/debug/registry',
+    component: ComponentCreator('/react-native-mazic-ui/__docusaurus/debug/registry', '00b'),
+    exact: true
+  },
+  {
+    path: '/react-native-mazic-ui/__docusaurus/debug/routes',
+    component: ComponentCreator('/react-native-mazic-ui/__docusaurus/debug/routes', '577'),
+    exact: true
+  },
+  {
     path: '/react-native-mazic-ui/search',
     component: ComponentCreator('/react-native-mazic-ui/search', '4f9'),
     exact: true

@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { Appearance } from 'react-native';
-import { MMKV } from 'react-native-mmkv';
+import * as ReactNativeMMKV from 'react-native-mmkv';
 
 // MMKV instance for theme persistence
-const storage = new MMKV();
+const storage = ReactNativeMMKV.createMMKV();
 const THEME_KEY = 'tcbsTheme';
 
 // Store the listener subscription so we can remove it

@@ -19,6 +19,53 @@ This is a React Native UI component library called `@tcbs/react-native-mazic-ui`
 - **Error Handling**: Robust error boundary with development and production fallbacks
 - **Persistent Storage**: Theme settings stored using MMKV
 
+## Component Blueprint
+
+Every new component in this library must satisfy the following UI/UX requirements before it is considered production ready.
+
+### 1. Responsiveness and adaptive layouts
+
+- Build layouts with React Native flexbox primitives and remember `flexDirection` defaults to `column`.
+- Prefer `flex`, percentages, and `aspectRatio` over hardcoded widths and heights.
+- Use `useWindowDimensions` or dimension listeners when layout behavior must adapt to tablets, foldables, or compact screens.
+- Stress-test text with long strings, translated copy, and large content blocks to avoid clipping, overlap, and broken wrapping.
+- Preserve component state, focus, and scroll position cleanly across portrait and landscape changes.
+
+### 2. Platform-specific patterns and ergonomics
+
+- Do not introduce web-specific UI patterns such as hover-only interactions, HTML-style dropdowns, or inline web link behaviors.
+- Respect minimum touch target sizes: `44x44` pt on iOS and `48x48` dp on Android.
+- Use `hitSlop` to expand small tap targets such as icon buttons or dismiss controls.
+- Prefer `Pressable` for interactive components and define clear pressed, focused, and disabled states.
+- Keep interactive content within safe area boundaries so it is not obscured by notches, status bars, or home indicators.
+
+### 3. Accessibility requirements
+
+- Set explicit `accessibilityRole` values for interactive and semantic elements.
+- Use `accessible={true}` on container views when child content should be presented as a single screen-reader focus target.
+- Provide accurate `accessibilityLabel` and `accessibilityHint` values for non-text or non-obvious controls.
+- Support Dynamic Type and verify layouts remain usable at larger system font sizes.
+- Maintain at least `4.5:1` text contrast and never rely on color alone to communicate state; pair status with text or icons.
+- Announce important dynamic state changes such as loading, error, or success feedback when the interaction depends on them.
+
+### 4. Hardware, performance, and resilience
+
+- Provide skeleton or placeholder states for async loading when a component depends on remote data.
+- Use optimistic UI updates where appropriate so interactions feel immediate while background work completes.
+- Prefer SVG or well-compressed image assets to reduce memory pressure on lower-end devices.
+- Protect form flows with `KeyboardAvoidingView` or equivalent keyboard-aware containers so inputs are never hidden.
+- Design sensible offline or degraded states, including read-only or cached behavior when network access is unavailable.
+
+### 5. Review checklist for new components
+
+Before shipping a new component, verify:
+
+- The layout adapts across narrow phones, tablets, orientation changes, and large text sizes.
+- Screen readers can identify, focus, and operate the component correctly on iOS and Android.
+- Touch targets, `hitSlop`, and pressed/disabled states are implemented for every interaction.
+- Loading, error, empty, and offline states are handled intentionally.
+- Asset, rendering, and interaction choices remain acceptable on lower-end devices.
+
 ## Architecture
 
 The library follows a component-based architecture:
@@ -34,6 +81,23 @@ The library follows a component-based architecture:
 
 3. **Types** (`src/components/TcbsButton.types.ts`):
    - Comprehensive type definitions for all button props and theme configurations
+
+## Documentation Versioning
+
+Documentation updates are required whenever a code or guidance change affects public behavior, API shape, usage, constraints, defaults, styling expectations, accessibility guarantees, or recommended implementation patterns.
+
+When making any meaningful repository change, always evaluate whether the docs site must be updated in the same task. Do not treat docs updates as optional follow-up work when the change alters what consumers, contributors, or future agents need to know.
+
+When updating the docs site:
+
+- Treat `docs-site/docs/` as the unreleased `next` documentation.
+- Treat `docs-site/versioned_docs/` as published historical documentation that should only describe behavior already shipped in that version.
+- Add new policy, guidance, standards, or upcoming behavior changes to `next` docs by default.
+- Only update versioned docs when the change reflects what was actually released in that specific version or when the user explicitly asks for a backport or correction.
+- If a docs change affects both unreleased and already shipped behavior, update both intentionally rather than copying changes into versioned docs by default.
+- For component work, update the relevant docs page whenever props, defaults, states, accessibility behavior, layout behavior, theming behavior, or usage guidance changes.
+- For repo-wide standards or policy changes, update the docs introduction or other top-level guidance pages when the information is relevant to library consumers.
+- If no docs update is needed for a change, make that a deliberate decision based on scope rather than an omission.
 
 ## Development Commands
 
