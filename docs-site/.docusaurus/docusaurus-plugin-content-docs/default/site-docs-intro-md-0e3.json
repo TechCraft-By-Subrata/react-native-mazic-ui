@@ -1,0 +1,24 @@
+{
+  "id": "intro",
+  "title": "Welcome to TCBS React Native UI",
+  "description": "Welcome to the documentation for @tcbs/react-native-mazic-ui - a customizable React Native UI component library.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/react-native-mazic-ui/docs/next/intro",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/intro.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "intro",
+    "title": "Welcome to TCBS React Native UI",
+    "sidebar_label": "Introduction"
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Installation",
+    "permalink": "/react-native-mazic-ui/docs/next/installation"
+  }
+}

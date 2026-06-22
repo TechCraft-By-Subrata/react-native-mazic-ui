@@ -1,0 +1,433 @@
+{
+  "entrypoints": [
+    "main"
+  ],
+  "origins": {
+    "237": [
+      237
+    ],
+    "436": [
+      436
+    ],
+    "489": [
+      741,
+      489
+    ],
+    "540": [
+      809,
+      540
+    ],
+    "741": [
+      489,
+      741
+    ],
+    "809": [
+      540,
+      809
+    ],
+    "17896441": [
+      869,
+      401
+    ],
+    "main": [
+      354,
+      869,
+      792
+    ],
+    "runtime~main": [
+      792,
+      869,
+      354
+    ],
+    "0d8bf7e4": [
+      899
+    ],
+    "0e384e19": [
+      976
+    ],
+    "138e0e15": [
+      921
+    ],
+    "1a4e3797": [
+      869,
+      138
+    ],
+    "1df93b7f": [
+      583
+    ],
+    "2ed83e1b": [
+      929
+    ],
+    "3b8c55ea": [
+      803
+    ],
+    "549f53e8": [
+      826
+    ],
+    "5e95c892": [
+      647
+    ],
+    "5fa4087a": [
+      49
+    ],
+    "723db508": [
+      654
+    ],
+    "7727d8b7": [
+      593
+    ],
+    "9eb89d33": [
+      870
+    ],
+    "a27ff3ee": [
+      702
+    ],
+    "a7456010": [
+      235
+    ],
+    "a7bd4aaa": [
+      98
+    ],
+    "a94703ab": [
+      869,
+      48
+    ],
+    "aba21aa0": [
+      742
+    ],
+    "b759477d": [
+      222
+    ],
+    "bb74133f": [
+      429
+    ],
+    "c8dca731": [
+      189
+    ],
+    "ca410661": [
+      379
+    ],
+    "d0a5ae40": [
+      91
+    ],
+    "ec9e97d3": [
+      410
+    ],
+    "styles": [
+      48,
+      138,
+      354,
+      401,
+      792,
+      869
+    ]
+  },
+  "assets": {
+    "48": {
+      "js": [
+        {
+          "file": "assets/js/a94703ab.49ad12f4.js",
+          "hash": "6fd66e5df8337669",
+          "publicPath": "/react-native-mazic-ui/assets/js/a94703ab.49ad12f4.js"
+        }
+      ]
+    },
+    "49": {
+      "js": [
+        {
+          "file": "assets/js/5fa4087a.9b58dcae.js",
+          "hash": "fe648324ff19e8fe",
+          "publicPath": "/react-native-mazic-ui/assets/js/5fa4087a.9b58dcae.js"
+        }
+      ]
+    },
+    "91": {
+      "js": [
+        {
+          "file": "assets/js/d0a5ae40.5c777010.js",
+          "hash": "b901ce85e0a757a7",
+          "publicPath": "/react-native-mazic-ui/assets/js/d0a5ae40.5c777010.js"
+        }
+      ]
+    },
+    "98": {
+      "js": [
+        {
+          "file": "assets/js/a7bd4aaa.975602e3.js",
+          "hash": "11c7c20d1e4f0b2d",
+          "publicPath": "/react-native-mazic-ui/assets/js/a7bd4aaa.975602e3.js"
+        }
+      ]
+    },
+    "138": {
+      "js": [
+        {
+          "file": "assets/js/1a4e3797.e96c3c1b.js",
+          "hash": "3e4dd72bf8b0e7d8",
+          "publicPath": "/react-native-mazic-ui/assets/js/1a4e3797.e96c3c1b.js"
+        }
+      ]
+    },
+    "189": {
+      "js": [
+        {
+          "file": "assets/js/c8dca731.e5ad6441.js",
+          "hash": "a78433a033c5bb08",
+          "publicPath": "/react-native-mazic-ui/assets/js/c8dca731.e5ad6441.js"
+        }
+      ]
+    },
+    "222": {
+      "js": [
+        {
+          "file": "assets/js/b759477d.8883c0cc.js",
+          "hash": "7e7c9b3d1446de63",
+          "publicPath": "/react-native-mazic-ui/assets/js/b759477d.8883c0cc.js"
+        }
+      ]
+    },
+    "235": {
+      "js": [
+        {
+          "file": "assets/js/a7456010.6e3bc60a.js",
+          "hash": "a34051172b57a652",
+          "publicPath": "/react-native-mazic-ui/assets/js/a7456010.6e3bc60a.js"
+        }
+      ]
+    },
+    "237": {
+      "js": [
+        {
+          "file": "assets/js/237.9d60a5e3.js",
+          "hash": "da96867054ef3d52",
+          "publicPath": "/react-native-mazic-ui/assets/js/237.9d60a5e3.js"
+        }
+      ]
+    },
+    "354": {
+      "js": [
+        {
+          "file": "assets/js/runtime~main.23ba6d1e.js",
+          "hash": "c4ea6bf1a532c588",
+          "publicPath": "/react-native-mazic-ui/assets/js/runtime~main.23ba6d1e.js"
+        }
+      ]
+    },
+    "379": {
+      "js": [
+        {
+          "file": "assets/js/ca410661.4a0e53c0.js",
+          "hash": "70f938f63e1d0ef1",
+          "publicPath": "/react-native-mazic-ui/assets/js/ca410661.4a0e53c0.js"
+        }
+      ]
+    },
+    "401": {
+      "js": [
+        {
+          "file": "assets/js/17896441.9cf17fe1.js",
+          "hash": "2f886480652529ba",
+          "publicPath": "/react-native-mazic-ui/assets/js/17896441.9cf17fe1.js"
+        }
+      ]
+    },
+    "410": {
+      "js": [
+        {
+          "file": "assets/js/ec9e97d3.8e513567.js",
+          "hash": "8d56381de1001d29",
+          "publicPath": "/react-native-mazic-ui/assets/js/ec9e97d3.8e513567.js"
+        }
+      ]
+    },
+    "429": {
+      "js": [
+        {
+          "file": "assets/js/bb74133f.5cb4871c.js",
+          "hash": "013b6caf8ddd7c78",
+          "publicPath": "/react-native-mazic-ui/assets/js/bb74133f.5cb4871c.js"
+        }
+      ]
+    },
+    "436": {
+      "js": [
+        {
+          "file": "assets/js/436.25cbc049.js",
+          "hash": "4d1c64d45d1d4f31",
+          "publicPath": "/react-native-mazic-ui/assets/js/436.25cbc049.js"
+        }
+      ]
+    },
+    "489": {
+      "js": [
+        {
+          "file": "assets/js/489.9ebdf76d.js",
+          "hash": "b3e21cca2955a01b",
+          "publicPath": "/react-native-mazic-ui/assets/js/489.9ebdf76d.js"
+        }
+      ]
+    },
+    "540": {
+      "js": [
+        {
+          "file": "assets/js/540.5436e412.js",
+          "hash": "512ad6b053b7694b",
+          "publicPath": "/react-native-mazic-ui/assets/js/540.5436e412.js"
+        }
+      ]
+    },
+    "583": {
+      "js": [
+        {
+          "file": "assets/js/1df93b7f.a1eab021.js",
+          "hash": "2d92649082b14520",
+          "publicPath": "/react-native-mazic-ui/assets/js/1df93b7f.a1eab021.js"
+        }
+      ]
+    },
+    "593": {
+      "js": [
+        {
+          "file": "assets/js/7727d8b7.bb501e04.js",
+          "hash": "7351109b9eb619ce",
+          "publicPath": "/react-native-mazic-ui/assets/js/7727d8b7.bb501e04.js"
+        }
+      ]
+    },
+    "647": {
+      "js": [
+        {
+          "file": "assets/js/5e95c892.bd4585a4.js",
+          "hash": "9f43bc44f23eae4a",
+          "publicPath": "/react-native-mazic-ui/assets/js/5e95c892.bd4585a4.js"
+        }
+      ]
+    },
+    "654": {
+      "js": [
+        {
+          "file": "assets/js/723db508.d6a3473e.js",
+          "hash": "0c8b03ed93051ccc",
+          "publicPath": "/react-native-mazic-ui/assets/js/723db508.d6a3473e.js"
+        }
+      ]
+    },
+    "702": {
+      "js": [
+        {
+          "file": "assets/js/a27ff3ee.4bde17a6.js",
+          "hash": "cb2981e5ffd76cc6",
+          "publicPath": "/react-native-mazic-ui/assets/js/a27ff3ee.4bde17a6.js"
+        }
+      ]
+    },
+    "741": {
+      "js": [
+        {
+          "file": "assets/js/741.3a379b23.js",
+          "hash": "8b43b4e80589aefd",
+          "publicPath": "/react-native-mazic-ui/assets/js/741.3a379b23.js"
+        }
+      ]
+    },
+    "742": {
+      "js": [
+        {
+          "file": "assets/js/aba21aa0.ef552242.js",
+          "hash": "dcc712a79c3e21dd",
+          "publicPath": "/react-native-mazic-ui/assets/js/aba21aa0.ef552242.js"
+        }
+      ]
+    },
+    "792": {
+      "js": [
+        {
+          "file": "assets/js/main.8519efc4.js",
+          "hash": "58427a1e88e6294e",
+          "publicPath": "/react-native-mazic-ui/assets/js/main.8519efc4.js"
+        }
+      ]
+    },
+    "803": {
+      "js": [
+        {
+          "file": "assets/js/3b8c55ea.213a7536.js",
+          "hash": "188a2023b5cbf36b",
+          "publicPath": "/react-native-mazic-ui/assets/js/3b8c55ea.213a7536.js"
+        }
+      ]
+    },
+    "809": {
+      "js": [
+        {
+          "file": "assets/js/809.0e46a510.js",
+          "hash": "d52bde1584290b72",
+          "publicPath": "/react-native-mazic-ui/assets/js/809.0e46a510.js"
+        }
+      ]
+    },
+    "826": {
+      "js": [
+        {
+          "file": "assets/js/549f53e8.b60d3d84.js",
+          "hash": "9c7944d944f2ed96",
+          "publicPath": "/react-native-mazic-ui/assets/js/549f53e8.b60d3d84.js"
+        }
+      ]
+    },
+    "869": {
+      "css": [
+        {
+          "file": "assets/css/styles.3bc96c04.css",
+          "hash": "65726bf6e468221b",
+          "publicPath": "/react-native-mazic-ui/assets/css/styles.3bc96c04.css"
+        }
+      ]
+    },
+    "870": {
+      "js": [
+        {
+          "file": "assets/js/9eb89d33.5376121a.js",
+          "hash": "854beaf817dae19f",
+          "publicPath": "/react-native-mazic-ui/assets/js/9eb89d33.5376121a.js"
+        }
+      ]
+    },
+    "899": {
+      "js": [
+        {
+          "file": "assets/js/0d8bf7e4.8cd77bcf.js",
+          "hash": "296bdf31c51ad653",
+          "publicPath": "/react-native-mazic-ui/assets/js/0d8bf7e4.8cd77bcf.js"
+        }
+      ]
+    },
+    "921": {
+      "js": [
+        {
+          "file": "assets/js/138e0e15.f50339c2.js",
+          "hash": "4cb0e5121600cbb7",
+          "publicPath": "/react-native-mazic-ui/assets/js/138e0e15.f50339c2.js"
+        }
+      ]
+    },
+    "929": {
+      "js": [
+        {
+          "file": "assets/js/2ed83e1b.1254dcae.js",
+          "hash": "fa09223bc4945793",
+          "publicPath": "/react-native-mazic-ui/assets/js/2ed83e1b.1254dcae.js"
+        }
+      ]
+    },
+    "976": {
+      "js": [
+        {
+          "file": "assets/js/0e384e19.f80c2e28.js",
+          "hash": "1c9172cba5bddaa1",
+          "publicPath": "/react-native-mazic-ui/assets/js/0e384e19.f80c2e28.js"
+        }
+      ]
+    }
+  }
+}

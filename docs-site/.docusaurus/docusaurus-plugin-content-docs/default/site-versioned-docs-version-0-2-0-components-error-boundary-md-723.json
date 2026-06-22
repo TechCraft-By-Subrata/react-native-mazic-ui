@@ -1,0 +1,28 @@
+{
+  "id": "components/error-boundary",
+  "title": "AppErrorBoundary",
+  "description": "The AppErrorBoundary component provides graceful error handling for React Native applications.",
+  "source": "@site/versioned_docs/version-0.2.0/components/error-boundary.md",
+  "sourceDirName": "components",
+  "slug": "/components/error-boundary",
+  "permalink": "/react-native-mazic-ui/docs/components/error-boundary",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/versioned_docs/version-0.2.0/components/error-boundary.md",
+  "tags": [],
+  "version": "0.2.0",
+  "frontMatter": {
+    "id": "error-boundary",
+    "title": "AppErrorBoundary",
+    "sidebar_label": "Error Boundary"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Button",
+    "permalink": "/react-native-mazic-ui/docs/components/button"
+  },
+  "next": {
+    "title": "Theme",
+    "permalink": "/react-native-mazic-ui/docs/components/theme"
+  }
+}

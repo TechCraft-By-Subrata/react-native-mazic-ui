@@ -1,0 +1,28 @@
+{
+  "id": "components/card",
+  "title": "CustomCard Component",
+  "description": "The CustomCard component provides a consistent card design with theme support.",
+  "source": "@site/versioned_docs/version-0.2.0/components/card.md",
+  "sourceDirName": "components",
+  "slug": "/components/card",
+  "permalink": "/react-native-mazic-ui/docs/components/card",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/versioned_docs/version-0.2.0/components/card.md",
+  "tags": [],
+  "version": "0.2.0",
+  "frontMatter": {
+    "id": "card",
+    "title": "CustomCard Component",
+    "sidebar_label": "Card"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Theme",
+    "permalink": "/react-native-mazic-ui/docs/components/theme"
+  },
+  "next": {
+    "title": "Text",
+    "permalink": "/react-native-mazic-ui/docs/components/text"
+  }
+}

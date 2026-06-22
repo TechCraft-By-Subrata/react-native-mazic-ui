@@ -1,0 +1,28 @@
+{
+  "id": "components/button",
+  "title": "TcbsButton Component",
+  "description": "The TcbsButton component is a highly customizable button with icon support and theme integration.",
+  "source": "@site/versioned_docs/version-0.2.0/components/button.md",
+  "sourceDirName": "components",
+  "slug": "/components/button",
+  "permalink": "/react-native-mazic-ui/docs/components/button",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/versioned_docs/version-0.2.0/components/button.md",
+  "tags": [],
+  "version": "0.2.0",
+  "frontMatter": {
+    "id": "button",
+    "title": "TcbsButton Component",
+    "sidebar_label": "Button"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/react-native-mazic-ui/docs/installation"
+  },
+  "next": {
+    "title": "Error Boundary",
+    "permalink": "/react-native-mazic-ui/docs/components/error-boundary"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "components/theme",
+  "title": "Theme Management",
+  "description": "The library provides comprehensive theme management using Zustand and MMKV.",
+  "source": "@site/docs/components/theme.md",
+  "sourceDirName": "components",
+  "slug": "/components/theme",
+  "permalink": "/react-native-mazic-ui/docs/next/components/theme",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/components/theme.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "theme",
+    "title": "Theme Management",
+    "sidebar_label": "Theme"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Error Boundary",
+    "permalink": "/react-native-mazic-ui/docs/next/components/error-boundary"
+  },
+  "next": {
+    "title": "Card",
+    "permalink": "/react-native-mazic-ui/docs/next/components/card"
+  }
+}

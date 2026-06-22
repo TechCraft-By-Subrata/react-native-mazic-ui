@@ -1,0 +1,22 @@
+/* Custom styles for theme toggle */
+.navbar__items--right {
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure the theme dropdown is visible */
+.dropdown__menu {
+  min-width: 120px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar__items--right {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Custom styling for theme toggle items */
+.navbar__item.dropdown__link--active {
+  background-color: rgba(0, 0, 0, 0.1);
+}

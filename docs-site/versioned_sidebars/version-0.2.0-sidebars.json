@@ -1,0 +1,11 @@
+{
+  "tutorialSidebar": [
+    "intro",
+    "installation",
+    "components/button",
+    "components/error-boundary",
+    "components/theme",
+    "components/card",
+    "components/text"
+  ]
+}

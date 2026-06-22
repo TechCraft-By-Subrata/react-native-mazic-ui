@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktcbs_react_native_ui_docs=globalThis.webpackChunktcbs_react_native_ui_docs||[]).push([[583],{6866(t,c,s){s.r(c),s.d(c,{default:()=>r});s(6540);var a=s(6347),e=s(6025),i=s(4848);function r(){return(0,i.jsx)(a.rd,{to:(0,e.Ay)("/docs/intro")})}}}]);

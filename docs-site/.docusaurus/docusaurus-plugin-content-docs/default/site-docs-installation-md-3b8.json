@@ -1,0 +1,28 @@
+{
+  "id": "installation",
+  "title": "Installation",
+  "description": "Prerequisites",
+  "source": "@site/docs/installation.md",
+  "sourceDirName": ".",
+  "slug": "/installation",
+  "permalink": "/react-native-mazic-ui/docs/next/installation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/installation.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "installation",
+    "title": "Installation",
+    "sidebar_label": "Installation"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/react-native-mazic-ui/docs/next/intro"
+  },
+  "next": {
+    "title": "Button",
+    "permalink": "/react-native-mazic-ui/docs/next/components/button"
+  }
+}
