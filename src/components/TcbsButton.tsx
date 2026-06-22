@@ -1,14 +1,13 @@
 import React, { useMemo } from 'react';
-import { Appearance } from 'react-native';
-import { TouchableOpacity, Text, View ,  StyleProp, ViewStyle, TextStyle } from 'react-native';
-import { AntDesign } from '@react-native-vector-icons/ant-design/static';
-import { Feather } from '@react-native-vector-icons/feather/static';
-import { FontAwesome } from '@react-native-vector-icons/fontawesome/static';
-import { Foundation } from '@react-native-vector-icons/foundation/static';
-import { Ionicons } from '@react-native-vector-icons/ionicons/static';
-import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons/static';
-import { Octicons } from '@react-native-vector-icons/octicons/static';
-import { MaterialIcons } from '@react-native-vector-icons/material-icons/static';
+import { Appearance, StyleSheet, TouchableOpacity, Text, View, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import { AntDesign } from '@react-native-vector-icons/ant-design';
+import { Feather } from '@react-native-vector-icons/feather';
+import { FontAwesome } from '@react-native-vector-icons/fontawesome';
+import { Foundation } from '@react-native-vector-icons/foundation';
+import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
+import { Octicons } from '@react-native-vector-icons/octicons';
+import { MaterialIcons } from '@react-native-vector-icons/material-icons';
 import {
   BUTTON_SIZE,
   BUTTON_VARIANT,
@@ -35,7 +34,7 @@ const FONT_SIZES: Record<ButtonSize, number> = {
 };
 
 // Support for BORDER_RADIUS.NONE and BORDER_RADIUS.FULL (50%)
-const BORDER_RADIUSES: Record<ButtonSize, number | string> = {
+const BORDER_RADIUSES: Record<ButtonSize, number> = {
   [BUTTON_SIZE.LARGE]: BORDER_RADIUS.MEDIUM,
   [BUTTON_SIZE.MEDIUM]: BORDER_RADIUS.SMALL,
   [BUTTON_SIZE.SMALL]: BORDER_RADIUS.SMALL,
@@ -83,13 +82,13 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     btnColor: effectiveThemeColor?.btnColor ?? effectiveThemeColor?.themeColor ?? '#007AFF',
     btnBorderColor: effectiveThemeColor?.btnBorderColor ?? effectiveThemeColor?.btnColor ?? '#007AFF',
     btnIconColor: effectiveThemeColor?.btnIconColor,
-    btnTextColor: effectiveThemeColor?.btnTextColor ?? effectiveThemeColor?.btnTxtColor,
+    btnTextColor: effectiveThemeColor?.btnTextColor,
     themeColor: effectiveThemeColor?.themeColor ?? effectiveThemeColor?.btnColor ?? '#007AFF',
   };
 
   const buttonStyle = useMemo<StyleProp<ViewStyle>>(() => {
     const height = HEIGHTS[size];
-    let computedBorderRadius: number | string;
+    let computedBorderRadius: number;
     if (borderRadius === BORDER_RADIUS.NONE) {
       computedBorderRadius = 0;
     } else if (borderRadius === BORDER_RADIUS.FULL) {
@@ -115,7 +114,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
         backgroundColor: '#fff',
         borderWidth: 2,
         borderColor: normalizedColors.btnBorderColor,
-        ...(style as ViewStyle),
+        ...(StyleSheet.flatten(style) || {}),
       };
     }
 
@@ -123,7 +122,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
       return {
         ...baseStyle,
         backgroundColor: 'transparent',
-        ...(style as ViewStyle),
+        ...(StyleSheet.flatten(style) || {}),
       };
     }
 
@@ -136,39 +135,33 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
       shadowRadius: 6,
       shadowOffset: { width: 0, height: 2 },
       elevation: 2,
-      ...(style as ViewStyle),
+      ...(StyleSheet.flatten(style) || {}),
     };
   }, [size, variant, normalizedColors, style, disabled, borderRadius]);
 
-  const themedTextStyle = useMemo<TextStyle>(() => {
-    let baseTextColor;
-    if (variant === BUTTON_VARIANT.PRIMARY) {
-      baseTextColor = normalizedColors.btnTextColor || '#FFFFFF';
-    } else if (variant === BUTTON_VARIANT.NO_BORDER) {
-      let colorScheme = tcbsTheme;
-      if (tcbsTheme === 'system') {
-        colorScheme = Appearance.getColorScheme() || 'light';
-      }
-      baseTextColor = colorScheme === 'dark'
-        ? normalizedColors.btnTextColor || '#FFFFFF'
-        : normalizedColors?.btnColor || '#007AFF';
-    } else {
-      baseTextColor = normalizedColors?.btnColor || '#FFFFFF';
-    }
+  const resolvedTextColor =
+    variant === BUTTON_VARIANT.PRIMARY
+      ? normalizedColors.btnTextColor || '#FFFFFF'
+      : variant === BUTTON_VARIANT.NO_BORDER
+        ? ((tcbsTheme === 'system' ? (Appearance.getColorScheme() || 'light') : tcbsTheme) === 'dark'
+            ? normalizedColors.btnTextColor || '#FFFFFF'
+            : normalizedColors.btnColor || '#007AFF')
+        : normalizedColors.btnColor || '#FFFFFF';
 
+  const themedTextStyle = useMemo<TextStyle>(() => {
     return {
-      color: baseTextColor,
+      color: resolvedTextColor,
       fontSize: FONT_SIZES[size],
       fontWeight: '700',
-      ...(textStyle as TextStyle),
+      ...(StyleSheet.flatten(textStyle) || {}),
     };
-  }, [size, variant, normalizedColors, textStyle, tcbsTheme]);
+  }, [size, resolvedTextColor, textStyle]);
 
   const renderIcon = (IconComponent: IconComponentType) => (
     <IconComponent
       name={iconName!}
       size={iconSize || FONT_SIZES[size] * 2}
-      color={iconColor || themedTextStyle.color}
+      color={iconColor || resolvedTextColor}
       style={
         iconPosition === 'top'
           ? { marginBottom: 2 }
@@ -184,7 +177,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
 
     const finalStyle: TextStyle = customStyle
       ? {
-          color: themedTextStyle.color,
+          color: resolvedTextColor,
           fontSize: FONT_SIZES[size] - 4,
           fontWeight: '500',
           ...customStyle,

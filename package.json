@@ -19,11 +19,11 @@
   },
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/types/index.d.ts",
   "react-native": "src/index.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
+      "types": "./lib/types/index.d.ts",
       "react-native": "./src/index.ts",
       "import": "./lib/module/index.js",
       "require": "./lib/commonjs/index.js",
@@ -32,17 +32,23 @@
   },
   "sideEffects": false,
   "files": [
-    "lib/",
+    "lib/commonjs/",
+    "lib/module/",
+    "lib/types/",
     "src/"
   ],
   "scripts": {
-    "build": "tsc",
-    "lint": "eslint src --ext .ts,.tsx",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "lint": "tsc --noEmit -p tsconfig.json",
     "test": "jest"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
-    "react-native": ">=0.68.0",
+    "react-native": ">=0.68.0"
+  },
+  "dependencies": {
     "@tcbs/react-native-exception-handler": "1.0.1",
     "@react-native-vector-icons/ant-design": "^13.1.0",
     "@react-native-vector-icons/feather": "^13.1.0",
@@ -55,7 +61,6 @@
     "react-native-mmkv": "^3.2.0",
     "zustand": "^5.0.3"
   },
-  "dependencies": {},
   "devDependencies": {
     "@react-native-vector-icons/ant-design": "^13.1.0",
     "@react-native-vector-icons/feather": "^13.1.0",

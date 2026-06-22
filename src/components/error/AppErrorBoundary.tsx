@@ -5,15 +5,22 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { setupGlobalExceptionHandlers } from './setupGlobalExceptionHandlers';
 
 setupGlobalExceptionHandlers();
 
+export interface AppErrorBoundaryFallbackProps {
+  error: any;
+  errorInfo: {
+    componentStack?: string;
+  } | null;
+  reset: () => void;
+}
+
 export interface AppErrorBoundaryProps {
   children?: React.ReactNode;
-  fallbackDev?: React.ReactNode;
-  fallbackProd?: React.ReactNode;
+  fallbackDev?: React.ReactNode | ((props: AppErrorBoundaryFallbackProps) => React.ReactNode);
+  fallbackProd?: React.ReactNode | ((props: AppErrorBoundaryFallbackProps) => React.ReactNode);
 }
 
 export interface AppErrorBoundaryState {
@@ -80,7 +87,7 @@ export class AppErrorBoundary extends React.Component<AppErrorBoundaryProps, App
     if (!error) return null;
 
     return (
-      <SafeAreaView style={{ flex: 1, marginBottom: 40 }}>
+      <View style={{ flex: 1, marginBottom: 40 }}>
         <ScrollView style={styles.container}>
           <Text style={styles.title}>🚨 Application Error (DEV)</Text>
 
@@ -111,7 +118,7 @@ export class AppErrorBoundary extends React.Component<AppErrorBoundaryProps, App
             </Text>
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 

@@ -1,11 +1,6 @@
 import { StyleProp, ViewStyle, TextStyle, AccessibilityRole, AccessibilityState, GestureResponderEvent } from 'react-native';
 
-export type IconComponentType = React.ComponentType<{
-  name: string;
-  size: number;
-  color: string;
-  style?: StyleProp<ViewStyle>;
-}>;
+export type IconComponentType = React.ComponentType<any>;
 
 export const BUTTON_SIZE = {
   LARGE: 'large',
@@ -25,7 +20,7 @@ export const BORDER_RADIUS = {
   MEDIUM: 12,
   LARGE: 16,
   NONE: 0,
-  FULL: '50%',
+  FULL: 9999,
 } as const;
 
 export type ButtonSize = (typeof BUTTON_SIZE)[keyof typeof BUTTON_SIZE];
@@ -38,6 +33,7 @@ export type IconGroupType =
   | 'Foundation'
   | 'Ionicons'
   | 'MaterialDesignIcons'
+  | 'MaterialIcons'
   | 'Octicons'
   | 'Lucide';
 

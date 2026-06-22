@@ -1,8 +1,15 @@
 import React from 'react';
+export interface AppErrorBoundaryFallbackProps {
+    error: any;
+    errorInfo: {
+        componentStack?: string;
+    } | null;
+    reset: () => void;
+}
 export interface AppErrorBoundaryProps {
     children?: React.ReactNode;
-    fallbackDev?: React.ReactNode;
-    fallbackProd?: React.ReactNode;
+    fallbackDev?: React.ReactNode | ((props: AppErrorBoundaryFallbackProps) => React.ReactNode);
+    fallbackProd?: React.ReactNode | ((props: AppErrorBoundaryFallbackProps) => React.ReactNode);
 }
 export interface AppErrorBoundaryState {
     hasError: boolean;

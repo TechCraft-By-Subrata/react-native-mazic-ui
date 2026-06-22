@@ -213,16 +213,11 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
       }));
     },
     toggleTcbsTheme: () => {
-      set((state: ThemeStore) => {
-        const themes: ThemeMode[] = ['light', 'dark', 'system'];
-        const currentIdx = themes.indexOf(state.tcbsTheme);
-        const nextTheme = themes[(currentIdx + 1) % themes.length];
-        // Note: setTcbsTheme is called outside the state update, but here it's called internally
-        // which is a common pattern in zustand actions.
-        // @ts-ignore
-        state.setTcbsTheme(nextTheme);
-        return {};
-      });
+      const state = get();
+      const themes: ThemeMode[] = ['light', 'dark', 'system'];
+      const currentIdx = themes.indexOf(state.tcbsTheme);
+      const nextTheme = themes[(currentIdx + 1) % themes.length];
+      state.setTcbsTheme(nextTheme);
     },
     
     // REWRITTEN FUNCTION using hardcoded neutrals for better UI contrast

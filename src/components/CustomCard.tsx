@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle, TextStyle, Pressable, GestureResponderEvent } from 'react-native';
-import { Ionicons } from '@react-native-vector-icons/ionicons/static';
-import { useTcbsColorStore } from '../store/themeStore';
+import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { ThemeColor, useTcbsColorStore } from '../store/themeStore';
 import CustomText from './CustomText';
 
 type CardVariant = 'default' | 'outlined';
@@ -20,6 +20,59 @@ interface CustomCardProps {
   onPress?: (event: GestureResponderEvent) => void;
   trailingIcon?: string;
 }
+
+const CardBody = ({
+  title,
+  description,
+  trailingIcon,
+  theme,
+  textStyle,
+}: {
+  title: string;
+  description?: string;
+  trailingIcon?: string;
+  theme: ThemeColor;
+  textStyle?: TextStyle;
+}) => (
+  <>
+    <View
+      style={[
+        styles.accentTopRight,
+        { backgroundColor: theme.warningColor },
+      ]}
+      pointerEvents="none"
+    />
+    <View
+      style={[
+        styles.accentBottomLeft,
+        { backgroundColor: theme.warningColor },
+      ]}
+      pointerEvents="none"
+    />
+
+    <View style={styles.content}>
+      <View style={{ flex: 1 }}>
+        <Text style={[styles.title, { color: theme.textPrimary }, textStyle]}>
+          {title}
+        </Text>
+        {description && (
+          <Text style={[styles.description, { color: theme.textSecondary }]}>
+            {description}
+          </Text>
+        )}
+      </View>
+
+      {trailingIcon ? (
+        <Ionicons
+          name={trailingIcon as any}
+          size={20}
+          color={theme.textPrimary}
+          style={styles.icon}
+        />
+      ) : null}
+    </View>
+  </>
+);
 
 const CustomCard: React.FC<CustomCardProps> = ({
   title,
@@ -40,76 +93,76 @@ const CustomCard: React.FC<CustomCardProps> = ({
   const getCardStyle = (): ViewStyle => {
     return variant === 'outlined'
       ? {
-        backgroundColor: theme.cardBgColor,
-        borderColor: theme.cardBorderColor,
-        borderWidth: 1,
-      }
+          backgroundColor: theme.cardBgColor,
+          borderColor: theme.cardBorderColor,
+          borderWidth: 1,
+        }
       : { backgroundColor: theme.cardBgColor };
   };
 
-  const Container: any = onPress ? Pressable : View;
+  const cardContent = (
+    <>
+      {secureText && (
+        <View
+          style={{
+            position: 'absolute',
+            zIndex: 3,
+            left: -26,
+            opacity: 1,
+            top: 5,
+            transform: [{ rotate: '-50deg' }],
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: secureStrapColor || theme.successColor,
+              paddingHorizontal: 20,
+              paddingVertical: 6,
+              borderRadius: 4,
+              elevation: 2,
+            }}
+          >
+            <CustomText variant="caption" style={{ color: '#FFFFFF', fontWeight: '600' }}>
+              {secureText}
+            </CustomText>
+          </View>
+        </View>
+      )}
+
+      <CardBody
+        title={title}
+        description={description}
+        trailingIcon={trailingIcon}
+        theme={theme}
+        textStyle={textStyle}
+      />
+    </>
+  );
 
   return (
     <View style={{ width: '100%', marginBottom: 12 }}>
       <View style={{ overflow: 'hidden' }}>
-        {secureText && (
-          <View style={{ position: 'absolute', zIndex: 3, left: -26, opacity: 1, top: 5, transform: [{ rotate: '-50deg' }] }}>
-            <View style={{ backgroundColor: secureStrapColor || theme.successColor, paddingHorizontal: 20, paddingVertical: 6, borderRadius: 4, elevation: 2 }}>
-              <CustomText variant="caption" style={{ color: theme.card, fontWeight: '600' }}>
-                {secureText}
-              </CustomText>
-            </View>
-          </View>)}
-        <Container
-          onPress={onPress}
-          accessibilityLabel={accessibilityLabel}
-          accessibilityRole={accessibilityRole}
-          accessible={accessible}
-          android_ripple={{ color: theme.warningColor + '22' }}
-          style={({ pressed }: { pressed: boolean }) => [
-            styles.card,
-            getCardStyle(),
-            style,
-            pressed && { opacity: 0.85 },
-          ]}>
-          {/* Decorative accents */}
-          <View
-            style={[
-              styles.accentTopRight,
-              { backgroundColor: theme.warningColor },
+        {onPress ? (
+          <Pressable
+            onPress={onPress}
+            accessibilityLabel={accessibilityLabel}
+            accessibilityRole={accessibilityRole}
+            accessible={accessible}
+            android_ripple={{ color: `${theme.warningColor || '#F59E0B'}22` }}
+            style={({ pressed }: { pressed: boolean }) => [
+              styles.card,
+              getCardStyle(),
+              style,
+              pressed && { opacity: 0.85 },
             ]}
-            pointerEvents="none"
-          />
-          <View
-            style={[
-              styles.accentBottomLeft,
-              { backgroundColor: theme.warningColor },
-            ]}
-            pointerEvents="none"
-          />
-
-          <View style={styles.content}>
-            <View style={{ flex: 1 }}>
-              <Text style={[styles.title, { color: theme.textPrimary }, textStyle]}>
-                {title}
-              </Text>
-              {description && (
-                <Text style={[styles.description, { color: theme.textSecondary }]}>
-                  {description}
-                </Text>
-              )}
-            </View>
-
-            {onPress && (
-              <Ionicons
-                name={trailingIcon}
-                size={20}
-                color={theme.textPrimary}
-                style={styles.icon}
-              />
-            )}
+          >
+            {cardContent}
+          </Pressable>
+        ) : (
+          <View style={[styles.card, getCardStyle(), style]}>
+            {cardContent}
           </View>
-        </Container>
+        )}
       </View>
     </View>
   );

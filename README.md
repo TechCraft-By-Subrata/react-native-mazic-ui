@@ -12,11 +12,11 @@ A customizable React Native UI component library.
 ## Installation
 
 ```sh
-npm install @tcbs/react-native-mazic-ui @tcbs/react-native-exception-handler
+npm install @tcbs/react-native-mazic-ui
 ```
 
 ```sh
-yarn add @tcbs/react-native-mazic-ui @tcbs/react-native-exception-handler
+yarn add @tcbs/react-native-mazic-ui
 ```
 
 
