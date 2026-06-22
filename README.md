@@ -11,6 +11,33 @@ A customizable React Native UI component library.
 
 Requires React Native `0.76+` because `react-native-mmkv` v4 uses Nitro Modules.
 
+## Release and Docs Automation
+
+This repository is configured for:
+
+- automatic docs-site deployment from `main`
+- automated npm publishing through GitHub Actions after a reviewed release PR is merged
+- explicit semver selection through Changesets instead of guessing version type from pushes
+
+### Release policy
+
+- Use a changeset for every user-visible package change.
+- Use `patch` for fixes, `minor` for backward-compatible features, and `major` for breaking changes.
+- `major` releases should receive explicit maintainer review before merging the generated release PR.
+
+### Common maintainer commands
+
+```sh
+npm run changeset
+npm run version-packages
+npm run release
+```
+
+### One-time GitHub setup
+
+- Add an `NPM_TOKEN` repository secret with publish access to `@tcbs/react-native-mazic-ui`.
+- Configure GitHub Pages to deploy from GitHub Actions.
+
 ## Installation
 
 ```sh

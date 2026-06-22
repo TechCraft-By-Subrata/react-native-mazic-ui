@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install package dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Lint package
+        run: npm run lint
+
+      - name: Build package
+        run: npm run build
+
+      - name: Run tests
+        run: npm test -- --runInBand --passWithNoTests
+
+      - name: Install docs dependencies
+        run: npm install --prefix docs-site
+
+      - name: Build docs site
+        run: npm run docs:build

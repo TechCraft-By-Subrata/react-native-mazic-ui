@@ -99,6 +99,17 @@ When updating the docs site:
 - For repo-wide standards or policy changes, update the docs introduction or other top-level guidance pages when the information is relevant to library consumers.
 - If no docs update is needed for a change, make that a deliberate decision based on scope rather than an omission.
 
+## Release Process
+
+This is a public GitHub repository and a public npm package. Release automation must follow these rules:
+
+- Deploy the docs site automatically from `main` when docs or library changes are pushed.
+- Do not guess semver bump types from pushes alone.
+- Use Changesets to choose `patch`, `minor`, or `major` intentionally for every user-visible package change.
+- Treat `patch` and `minor` releases as automation-friendly after explicit Changesets metadata is merged.
+- Treat `major` releases as requiring explicit maintainer review of the generated release PR before publishing.
+- When a change affects public package behavior, API, defaults, or guidance, update the relevant docs and ensure the release metadata reflects the impact.
+
 ## Development Commands
 
 ```bash
