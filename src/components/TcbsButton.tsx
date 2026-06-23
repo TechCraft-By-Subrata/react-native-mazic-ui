@@ -75,7 +75,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   accessibilityState,
 }) => {
   // Use themeColors from store if not provided as prop
-  const { themeColors, tcbsTheme } = useTcbsColorStore();
+  const { themeColors, tcbsTheme, scaleTokens } = useTcbsColorStore();
   const effectiveThemeColor = themeColors;
   // Normalize colors: if only one color is set, use it for all
   const normalizedColors = {
@@ -96,7 +96,12 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     } else if (borderRadius !== undefined) {
       computedBorderRadius = borderRadius;
     } else {
-      computedBorderRadius = BORDER_RADIUSES[size];
+      computedBorderRadius =
+        size === BUTTON_SIZE.LARGE
+          ? scaleTokens.radius.m
+          : size === BUTTON_SIZE.MEDIUM
+            ? scaleTokens.radius.s
+            : Math.max(scaleTokens.radius.xs, BORDER_RADIUSES[size]);
     }
 
     const baseStyle: ViewStyle = {
@@ -105,7 +110,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
       alignItems: 'center',
       justifyContent: 'center',
       opacity: disabled ? 0.6 : 1,
-      paddingHorizontal: 24,
+      paddingHorizontal: scaleTokens.spacing.xxl,
     };
 
     if (variant === BUTTON_VARIANT.SECONDARY) {
@@ -137,7 +142,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
       elevation: 2,
       ...(StyleSheet.flatten(style) || {}),
     };
-  }, [size, variant, normalizedColors, style, disabled, borderRadius]);
+  }, [size, variant, normalizedColors, style, disabled, borderRadius, scaleTokens]);
 
   const resolvedTextColor =
     variant === BUTTON_VARIANT.PRIMARY
@@ -151,23 +156,35 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
   const themedTextStyle = useMemo<TextStyle>(() => {
     return {
       color: resolvedTextColor,
-      fontSize: FONT_SIZES[size],
+      fontSize:
+        size === BUTTON_SIZE.LARGE
+          ? scaleTokens.fontSize.xl
+          : size === BUTTON_SIZE.MEDIUM
+            ? scaleTokens.fontSize.m
+            : scaleTokens.fontSize.s,
       fontWeight: '700',
       ...(StyleSheet.flatten(textStyle) || {}),
     };
-  }, [size, resolvedTextColor, textStyle]);
+  }, [size, resolvedTextColor, textStyle, scaleTokens]);
 
   const renderIcon = (IconComponent: IconComponentType) => (
     <IconComponent
       name={iconName!}
-      size={iconSize || FONT_SIZES[size] * 2}
+      size={
+        iconSize ||
+        (size === BUTTON_SIZE.LARGE
+          ? scaleTokens.fontSize.xxl + scaleTokens.spacing.m
+          : size === BUTTON_SIZE.MEDIUM
+            ? scaleTokens.fontSize.xl + scaleTokens.spacing.s
+            : scaleTokens.fontSize.l + scaleTokens.spacing.s)
+      }
       color={iconColor || resolvedTextColor}
       style={
         iconPosition === 'top'
-          ? { marginBottom: 2 }
+          ? { marginBottom: scaleTokens.spacing.xs }
           : iconPosition === 'left'
-          ? { marginRight: 8 }
-          : { marginLeft: 8 }
+          ? { marginRight: scaleTokens.spacing.m }
+          : { marginLeft: scaleTokens.spacing.m }
       }
     />
   );
@@ -178,7 +195,12 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
     const finalStyle: TextStyle = customStyle
       ? {
           color: resolvedTextColor,
-          fontSize: FONT_SIZES[size] - 4,
+          fontSize:
+            size === BUTTON_SIZE.LARGE
+              ? scaleTokens.fontSize.l
+              : size === BUTTON_SIZE.MEDIUM
+                ? scaleTokens.fontSize.s
+                : scaleTokens.fontSize.xs,
           fontWeight: '500',
           ...customStyle,
         }
@@ -209,7 +231,7 @@ export const TcbsButton: React.FC<TcbsButtonProps> = ({
       return (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
           {renderIcon(IconComponent)}
-          {renderText({ marginTop: 2 })}
+          {renderText({ marginTop: scaleTokens.spacing.xs })}
         </View>
       );
     }

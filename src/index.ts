@@ -20,6 +20,16 @@ export {
 	TcbsLiquidGlassIconButtonProps,
 } from './components/TcbsLiquidGlassButton.types';
 export { useTcbsColorStore } from './store/themeStore';
+export type {
+	ThemeColor,
+	ThemeColors,
+	ThemeMode,
+	TcbsScaleLevel,
+	TcbsScaleCategory,
+	TcbsScaleTokens,
+	PartialTcbsScaleTokens,
+} from './store/themeStore';
+export { defaultScaleTokens } from './store/themeStore';
 export {ThemeModal} from './components/ThemeModal';
 export {AppErrorBoundary} from './components/error/AppErrorBoundary';
 export {TcbsCard} from './components/CustomCard';

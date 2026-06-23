@@ -24,7 +24,7 @@ export const TcbsLiquidGlassIconButton: React.FC<TcbsLiquidGlassIconButtonProps>
   accessibilityRole = 'button',
   accessibilityState,
 }) => {
-  const { themeColors: theme } = useTcbsColorStore();
+  const { themeColors: theme, scaleTokens } = useTcbsColorStore();
   const radius = Math.round(size / 2);
 
   const surfaceColor = applyOpacityToColor(theme?.cardBgColor || '#F4F8FF', 0.78);
@@ -63,7 +63,7 @@ export const TcbsLiquidGlassIconButton: React.FC<TcbsLiquidGlassIconButtonProps>
           {
             left: Math.max(5, Math.floor(size * 0.13)),
             right: Math.max(5, Math.floor(size * 0.13)),
-            top: Math.max(3, Math.floor(size * 0.09)),
+            top: Math.max(scaleTokens.spacing.xs + 1, Math.floor(size * 0.09)),
             height: Math.max(8, Math.floor(size * 0.24)),
             borderRadius: Math.max(6, Math.floor(radius * 0.4)),
             backgroundColor: sheenColor,
@@ -84,7 +84,19 @@ export const TcbsLiquidGlassIconButton: React.FC<TcbsLiquidGlassIconButtonProps>
       {icon ? (
         <View style={styles.iconWrap}>{icon}</View>
       ) : (
-        <Text style={[styles.label, { color: iconColor }, textStyle]}>{label}</Text>
+        <Text
+          style={[
+            styles.label,
+            {
+              color: iconColor,
+              fontSize: scaleTokens.fontSize.xxl + scaleTokens.spacing.m + scaleTokens.spacing.xs,
+              lineHeight: scaleTokens.fontSize.xxl + scaleTokens.spacing.l,
+            },
+            textStyle,
+          ]}
+        >
+          {label}
+        </Text>
       )}
     </Pressable>
   );
@@ -118,8 +130,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   label: {
-    fontSize: 34,
-    lineHeight: 36,
     fontWeight: '700',
   },
 });

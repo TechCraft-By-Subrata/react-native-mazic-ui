@@ -20,5 +20,9 @@
   "previous": {
     "title": "Card",
     "permalink": "/react-native-mazic-ui/docs/next/components/card"
+  },
+  "next": {
+    "title": "Error Boundary",
+    "permalink": "/react-native-mazic-ui/docs/next/components/error-boundary"
   }
 }

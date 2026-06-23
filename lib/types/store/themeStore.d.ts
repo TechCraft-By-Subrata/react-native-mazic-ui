@@ -32,10 +32,23 @@ export type ThemeColors = {
     light: ThemeColor;
     dark: ThemeColor;
 };
+export type TcbsScaleLevel = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+export type TcbsScaleCategory = Record<TcbsScaleLevel, number>;
+export type TcbsScaleTokens = {
+    spacing: TcbsScaleCategory;
+    radius: TcbsScaleCategory;
+    fontSize: TcbsScaleCategory;
+};
+export type PartialTcbsScaleTokens = {
+    spacing?: Partial<TcbsScaleCategory>;
+    radius?: Partial<TcbsScaleCategory>;
+    fontSize?: Partial<TcbsScaleCategory>;
+};
 export interface ThemeStore {
     colors: ThemeColors;
     tcbsTheme: ThemeMode;
     themeColors: ThemeColor;
+    scaleTokens: TcbsScaleTokens;
     /**
      * Returns the current theme as 'light' or 'dark' (never 'system').
      * If tcbsTheme is 'system', resolves to the current system color scheme.
@@ -45,8 +58,10 @@ export interface ThemeStore {
         light?: Partial<ThemeColor>;
         dark?: Partial<ThemeColor>;
     }) => void;
+    setTcbsScale: (tokens: PartialTcbsScaleTokens) => void;
     setTcbsTheme: (mode: ThemeMode) => void;
     toggleTcbsTheme: () => void;
     setMazicColor: (baseColor: string) => void;
 }
+export declare const defaultScaleTokens: TcbsScaleTokens;
 export declare const useTcbsColorStore: import("zustand").UseBoundStore<import("zustand").StoreApi<ThemeStore>>;

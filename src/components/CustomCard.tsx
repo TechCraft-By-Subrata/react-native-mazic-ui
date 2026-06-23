@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle, TextStyle, Pressable, GestureResponderEvent } from 'react-native';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
-import { ThemeColor, useTcbsColorStore } from '../store/themeStore';
+import { TcbsScaleTokens, ThemeColor, useTcbsColorStore } from '../store/themeStore';
 import CustomText from './CustomText';
 
 type CardVariant = 'default' | 'outlined';
@@ -26,12 +26,14 @@ const CardBody = ({
   description,
   trailingIcon,
   theme,
+  scaleTokens,
   textStyle,
 }: {
   title: string;
   description?: string;
   trailingIcon?: string;
   theme: ThemeColor;
+  scaleTokens: TcbsScaleTokens;
   textStyle?: TextStyle;
 }) => (
   <>
@@ -52,11 +54,26 @@ const CardBody = ({
 
     <View style={styles.content}>
       <View style={{ flex: 1 }}>
-        <Text style={[styles.title, { color: theme.textPrimary }, textStyle]}>
+        <Text
+          style={[
+            styles.title,
+            {
+              color: theme.textPrimary,
+              fontSize: scaleTokens.fontSize.l,
+              marginBottom: scaleTokens.spacing.m,
+            },
+            textStyle,
+          ]}
+        >
           {title}
         </Text>
         {description && (
-          <Text style={[styles.description, { color: theme.textSecondary }]}>
+          <Text
+            style={[
+              styles.description,
+              { color: theme.textSecondary, fontSize: scaleTokens.fontSize.s },
+            ]}
+          >
             {description}
           </Text>
         )}
@@ -65,9 +82,9 @@ const CardBody = ({
       {trailingIcon ? (
         <Ionicons
           name={trailingIcon as any}
-          size={20}
+          size={scaleTokens.fontSize.xl}
           color={theme.textPrimary}
-          style={styles.icon}
+          style={[styles.icon, { marginLeft: scaleTokens.spacing.l }]}
         />
       ) : null}
     </View>
@@ -88,7 +105,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
   accessible,
   trailingIcon = 'chevron-forward',
 }) => {
-  const { themeColors: theme } = useTcbsColorStore();
+  const { themeColors: theme, scaleTokens } = useTcbsColorStore();
 
   const getCardStyle = (): ViewStyle => {
     return variant === 'outlined'
@@ -109,16 +126,16 @@ const CustomCard: React.FC<CustomCardProps> = ({
             zIndex: 3,
             left: -26,
             opacity: 1,
-            top: 5,
+            top: scaleTokens.spacing.s + 1,
             transform: [{ rotate: '-50deg' }],
           }}
         >
           <View
             style={{
               backgroundColor: secureStrapColor || theme.successColor,
-              paddingHorizontal: 20,
-              paddingVertical: 6,
-              borderRadius: 4,
+              paddingHorizontal: scaleTokens.spacing.xl + scaleTokens.spacing.xs,
+              paddingVertical: scaleTokens.spacing.s + scaleTokens.spacing.xs,
+              borderRadius: scaleTokens.radius.xs,
               elevation: 2,
             }}
           >
@@ -134,13 +151,14 @@ const CustomCard: React.FC<CustomCardProps> = ({
         description={description}
         trailingIcon={trailingIcon}
         theme={theme}
+        scaleTokens={scaleTokens}
         textStyle={textStyle}
       />
     </>
   );
 
   return (
-    <View style={{ width: '100%', marginBottom: 12 }}>
+    <View style={{ width: '100%', marginBottom: scaleTokens.spacing.l }}>
       <View style={{ overflow: 'hidden' }}>
         {onPress ? (
           <Pressable
@@ -151,6 +169,10 @@ const CustomCard: React.FC<CustomCardProps> = ({
             android_ripple={{ color: `${theme.warningColor || '#F59E0B'}22` }}
             style={({ pressed }: { pressed: boolean }) => [
               styles.card,
+              {
+                padding: scaleTokens.spacing.xl,
+                borderRadius: scaleTokens.radius.s + 2,
+              },
               getCardStyle(),
               style,
               pressed && { opacity: 0.85 },
@@ -159,7 +181,17 @@ const CustomCard: React.FC<CustomCardProps> = ({
             {cardContent}
           </Pressable>
         ) : (
-          <View style={[styles.card, getCardStyle(), style]}>
+          <View
+            style={[
+              styles.card,
+              {
+                padding: scaleTokens.spacing.xl,
+                borderRadius: scaleTokens.radius.s + 2,
+              },
+              getCardStyle(),
+              style,
+            ]}
+          >
             {cardContent}
           </View>
         )}
@@ -170,21 +202,16 @@ const CustomCard: React.FC<CustomCardProps> = ({
 
 const styles = StyleSheet.create({
   card: {
-    padding: 16,
-    borderRadius: 10,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
   title: {
-    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 8,
     textAlign: 'center',
   },
   description: {
-    fontSize: 14,
   },
   content: {
     flexDirection: 'row',

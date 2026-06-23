@@ -14,10 +14,10 @@ import {
   TcbsLiquidGlassButtonSize,
 } from './TcbsLiquidGlassButton.types';
 
-const SIZE_STYLES: Record<TcbsLiquidGlassButtonSize, { height: number; radius: number; fontSize: number }> = {
-  [TCBS_LIQUID_GLASS_BUTTON_SIZE.SMALL]: { height: 46, radius: 23, fontSize: 16 },
-  [TCBS_LIQUID_GLASS_BUTTON_SIZE.MEDIUM]: { height: 56, radius: 28, fontSize: 18 },
-  [TCBS_LIQUID_GLASS_BUTTON_SIZE.LARGE]: { height: 66, radius: 33, fontSize: 22 },
+const SIZE_STYLES: Record<TcbsLiquidGlassButtonSize, { height: number; radius: number }> = {
+  [TCBS_LIQUID_GLASS_BUTTON_SIZE.SMALL]: { height: 46, radius: 23 },
+  [TCBS_LIQUID_GLASS_BUTTON_SIZE.MEDIUM]: { height: 56, radius: 28 },
+  [TCBS_LIQUID_GLASS_BUTTON_SIZE.LARGE]: { height: 66, radius: 33 },
 };
 
 export const TcbsLiquidGlassButton: React.FC<TcbsLiquidGlassButtonProps> = ({
@@ -36,7 +36,7 @@ export const TcbsLiquidGlassButton: React.FC<TcbsLiquidGlassButtonProps> = ({
   accessibilityRole = 'button',
   accessibilityState,
 }) => {
-  const { themeColors: theme } = useTcbsColorStore();
+  const { themeColors: theme, scaleTokens } = useTcbsColorStore();
   const spec = SIZE_STYLES[size];
   const isDisabled = disabled || loading;
 
@@ -66,6 +66,7 @@ export const TcbsLiquidGlassButton: React.FC<TcbsLiquidGlassButtonProps> = ({
           backgroundColor: isDisabled ? applyOpacityToColor(surfaceColor, 0.72) : surfaceColor,
           borderColor,
           opacity: pressed ? 0.92 : 1,
+          paddingHorizontal: scaleTokens.spacing.xl,
         },
         style,
       ]}
@@ -77,9 +78,9 @@ export const TcbsLiquidGlassButton: React.FC<TcbsLiquidGlassButtonProps> = ({
           {
             backgroundColor: sheenColor,
             borderRadius: Math.max(8, Math.floor(spec.radius * 0.42)),
-            left: 10,
-            right: 10,
-            top: 6,
+            left: scaleTokens.spacing.l,
+            right: scaleTokens.spacing.l,
+            top: scaleTokens.spacing.s + scaleTokens.spacing.xs,
             height: Math.max(10, Math.floor(spec.height * 0.28)),
           },
         ]}
@@ -104,14 +105,19 @@ export const TcbsLiquidGlassButton: React.FC<TcbsLiquidGlassButtonProps> = ({
           <ActivityIndicator color={textColor} />
         ) : (
           <>
-            {icon ? <View style={styles.iconWrap}>{icon}</View> : null}
+            {icon ? <View style={[styles.iconWrap, { marginRight: scaleTokens.spacing.m }]}>{icon}</View> : null}
             <Text
               numberOfLines={1}
               style={[
                 styles.label,
                 {
                   color: isDisabled ? applyOpacityToColor(textColor, 0.55) : textColor,
-                  fontSize: spec.fontSize,
+                  fontSize:
+                    size === TCBS_LIQUID_GLASS_BUTTON_SIZE.LARGE
+                      ? scaleTokens.fontSize.xl
+                      : size === TCBS_LIQUID_GLASS_BUTTON_SIZE.MEDIUM
+                        ? scaleTokens.fontSize.l
+                        : scaleTokens.fontSize.m,
                 },
                 textStyle,
               ]}
@@ -130,7 +136,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     overflow: 'hidden',
     justifyContent: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: 0,
     shadowColor: '#2B3D5C',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.12,
@@ -149,11 +155,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 0,
   },
   iconWrap: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 8,
+    marginRight: 0,
   },
   label: {
     fontWeight: '700',
