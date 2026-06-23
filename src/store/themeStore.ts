@@ -46,16 +46,34 @@ export type ThemeColors = {
   dark: ThemeColor;
 };
 
+export type TcbsScaleLevel = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+
+export type TcbsScaleCategory = Record<TcbsScaleLevel, number>;
+
+export type TcbsScaleTokens = {
+  spacing: TcbsScaleCategory;
+  radius: TcbsScaleCategory;
+  fontSize: TcbsScaleCategory;
+};
+
+export type PartialTcbsScaleTokens = {
+  spacing?: Partial<TcbsScaleCategory>;
+  radius?: Partial<TcbsScaleCategory>;
+  fontSize?: Partial<TcbsScaleCategory>;
+};
+
 export interface ThemeStore {
   colors: ThemeColors;
   tcbsTheme: ThemeMode;
   themeColors: ThemeColor;
+  scaleTokens: TcbsScaleTokens;
   /**
    * Returns the current theme as 'light' or 'dark' (never 'system').
    * If tcbsTheme is 'system', resolves to the current system color scheme.
    */
   currentThemeMode: 'light' | 'dark';
   setTcbsColor: (colors: Partial<ThemeColor> & { light?: Partial<ThemeColor>; dark?: Partial<ThemeColor> }) => void;
+  setTcbsScale: (tokens: PartialTcbsScaleTokens) => void;
   setTcbsTheme: (mode: ThemeMode) => void;
   toggleTcbsTheme: () => void;
   setMazicColor: (baseColor: string) => void;
@@ -76,6 +94,33 @@ const defaultColors: ThemeColors = {
     btnIconColor: '#FFFFFF',
     themeColor: '#222222',
     btnTextColor: '#FFFFFF',
+  },
+};
+
+export const defaultScaleTokens: TcbsScaleTokens = {
+  spacing: {
+    xs: 2,
+    s: 4,
+    m: 8,
+    l: 12,
+    xl: 16,
+    xxl: 24,
+  },
+  radius: {
+    xs: 4,
+    s: 8,
+    m: 12,
+    l: 16,
+    xl: 20,
+    xxl: 24,
+  },
+  fontSize: {
+    xs: 4,
+    s: 8,
+    m: 12,
+    l: 16,
+    xl: 20,
+    xxl: 24,
   },
 };
 
@@ -160,6 +205,7 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
     colors: initialColors,
     tcbsTheme: initialTheme,
     themeColors: initialThemeColors,
+    scaleTokens: defaultScaleTokens,
     get currentThemeMode() {
       const state = get();
       if (state.tcbsTheme === 'light' || state.tcbsTheme === 'dark') {
@@ -189,6 +235,15 @@ export const useTcbsColorStore = create<ThemeStore>((set: (fn: (state: ThemeStor
         const themeColors = getThemeColors(state.tcbsTheme, newColors);
         return { colors: newColors, themeColors };
       });
+    },
+    setTcbsScale: (tokens: PartialTcbsScaleTokens) => {
+      set((state: ThemeStore) => ({
+        scaleTokens: {
+          spacing: { ...state.scaleTokens.spacing, ...(tokens.spacing || {}) },
+          radius: { ...state.scaleTokens.radius, ...(tokens.radius || {}) },
+          fontSize: { ...state.scaleTokens.fontSize, ...(tokens.fontSize || {}) },
+        },
+      }));
     },
     setTcbsTheme: (newTheme: ThemeMode) => {
       // Persist user selection

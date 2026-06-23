@@ -1,0 +1,28 @@
+{
+  "id": "components/liquid-glass-button",
+  "title": "Liquid Glass Buttons",
+  "description": "TcbsLiquidGlassButton and TcbsLiquidGlassIconButton provide a glass-style visual treatment using translucent layers, sheen, depth tint, and shadow.",
+  "source": "@site/docs/components/liquid-glass-button.md",
+  "sourceDirName": "components",
+  "slug": "/components/liquid-glass-button",
+  "permalink": "/react-native-mazic-ui/docs/next/components/liquid-glass-button",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/components/liquid-glass-button.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "liquid-glass-button",
+    "title": "Liquid Glass Buttons",
+    "sidebar_label": "Liquid Glass Buttons"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Button",
+    "permalink": "/react-native-mazic-ui/docs/next/components/button"
+  },
+  "next": {
+    "title": "Card",
+    "permalink": "/react-native-mazic-ui/docs/next/components/card"
+  }
+}

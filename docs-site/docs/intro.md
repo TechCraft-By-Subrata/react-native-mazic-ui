@@ -13,6 +13,8 @@ Mazic UI components are built against baseline standards for accessibility, adap
 This library provides:
 
 - **TcbsButton** - A highly customizable button with icon support
+- **TcbsLiquidGlassButton** - A layered translucent action button for glass-style interfaces
+- **TcbsLiquidGlassIconButton** - A circular glass-style icon button for close and utility actions
 - **Theme Management** - Light/dark/system theme support
 - **Error Handling** - Robust error boundaries
 - **Utility Components** - Custom cards and text components

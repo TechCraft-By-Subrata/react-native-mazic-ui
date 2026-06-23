@@ -5,7 +5,7 @@
 ![license](https://img.shields.io/npm/l/@tcbs/react-native-mazic-ui)
 [
   ![Docs](https://img.shields.io/badge/docs-UI%20Docs-blue?logo=readthedocs&logoColor=white&style=flat-square)
-](https://tcbscli.subraatakumar.com/ui-home/)
+](https://techcraft-by-subrata.github.io/react-native-mazic-ui/docs/intro/)
 
 A customizable React Native UI component library.
 

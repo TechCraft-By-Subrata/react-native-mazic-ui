@@ -18,11 +18,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Installation",
-    "permalink": "/react-native-mazic-ui/docs/next/installation"
+    "title": "Theme",
+    "permalink": "/react-native-mazic-ui/docs/next/components/theme"
   },
   "next": {
-    "title": "Error Boundary",
-    "permalink": "/react-native-mazic-ui/docs/next/components/error-boundary"
+    "title": "Liquid Glass Buttons",
+    "permalink": "/react-native-mazic-ui/docs/next/components/liquid-glass-button"
   }
 }

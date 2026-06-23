@@ -3,11 +3,12 @@ const sidebars = {
   tutorialSidebar: [
     'intro',
     'installation',
-    'components/button',
-    'components/error-boundary',
     'components/theme',
+    'components/button',
+    'components/liquid-glass-button',
     'components/card',
-    'components/text'
+    'components/text',
+    'components/error-boundary'
   ],
 };
 

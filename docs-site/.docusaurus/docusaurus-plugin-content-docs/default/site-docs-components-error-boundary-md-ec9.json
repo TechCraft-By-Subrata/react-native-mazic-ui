@@ -18,11 +18,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Button",
-    "permalink": "/react-native-mazic-ui/docs/next/components/button"
-  },
-  "next": {
-    "title": "Theme",
-    "permalink": "/react-native-mazic-ui/docs/next/components/theme"
+    "title": "Text",
+    "permalink": "/react-native-mazic-ui/docs/next/components/text"
   }
 }
