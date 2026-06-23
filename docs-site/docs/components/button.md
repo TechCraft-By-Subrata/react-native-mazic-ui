@@ -8,6 +8,8 @@ sidebar_label: Button
 
 The `TcbsButton` component is a highly customizable button with icon support and theme integration.
 
+For glass-style surfaces and circular close actions, use `TcbsLiquidGlassButton` and `TcbsLiquidGlassIconButton` instead. See the `Liquid Glass Buttons` page for that API.
+
 ## Props
 
 | Prop | Type | Default | Description |

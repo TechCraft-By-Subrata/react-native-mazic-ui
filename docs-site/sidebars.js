@@ -4,6 +4,7 @@ const sidebars = {
     'intro',
     'installation',
     'components/button',
+    'components/liquid-glass-button',
     'components/error-boundary',
     'components/theme',
     'components/card',

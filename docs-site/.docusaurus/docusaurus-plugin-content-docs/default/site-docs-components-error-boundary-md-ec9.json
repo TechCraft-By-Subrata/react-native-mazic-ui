@@ -18,8 +18,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Button",
-    "permalink": "/react-native-mazic-ui/docs/next/components/button"
+    "title": "Liquid Glass Buttons",
+    "permalink": "/react-native-mazic-ui/docs/next/components/liquid-glass-button"
   },
   "next": {
     "title": "Theme",

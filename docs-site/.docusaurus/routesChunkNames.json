@@ -1,134 +1,95 @@
 {
-  "/react-native-mazic-ui/__docusaurus/debug-fde": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docusaurus-debugb-38-868"
-    }
-  },
-  "/react-native-mazic-ui/__docusaurus/debug/config-d7d": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docusaurus-debugb-38-868"
-    }
-  },
-  "/react-native-mazic-ui/__docusaurus/debug/content-069": {
-    "__comp": "__comp---theme-debug-contentba-8-ce7",
-    "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docusaurus-debugb-38-868"
-    },
-    "__props": "__props---react-native-mazic-ui-docusaurus-debug-content-17-c-47b"
-  },
-  "/react-native-mazic-ui/__docusaurus/debug/globalData-6d7": {
-    "__comp": "__comp---theme-debug-global-dataede-0fa",
-    "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docusaurus-debugb-38-868"
-    }
-  },
-  "/react-native-mazic-ui/__docusaurus/debug/metadata-783": {
-    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
-    "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docusaurus-debugb-38-868"
-    }
-  },
-  "/react-native-mazic-ui/__docusaurus/debug/registry-00b": {
-    "__comp": "__comp---theme-debug-registry-679-501",
-    "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docusaurus-debugb-38-868"
-    }
-  },
-  "/react-native-mazic-ui/__docusaurus/debug/routes-577": {
-    "__comp": "__comp---theme-debug-routes-946-699",
-    "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docusaurus-debugb-38-868"
-    }
-  },
   "/react-native-mazic-ui/search-4f9": {
-    "__comp": "__comp---theme-search-page-1-a-4-d6f",
+    "__comp": "1a4e3797",
     "__context": {
-      "plugin": "plugin---react-native-mazic-ui-search-138-6d6"
+      "plugin": "138e0e15"
     }
   },
-  "/react-native-mazic-ui/docs-350": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+  "/react-native-mazic-ui/docs-249": {
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---react-native-mazic-ui-docsaba-3b9"
+      "plugin": "aba21aa0"
     }
   },
-  "/react-native-mazic-ui/docs/next-12d": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---react-native-mazic-ui-docs-nextc-8-d-72d"
+  "/react-native-mazic-ui/docs/next-0a6": {
+    "__comp": "a7bd4aaa",
+    "__props": "c8dca731"
   },
-  "/react-native-mazic-ui/docs/next-033": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+  "/react-native-mazic-ui/docs/next-ab3": {
+    "__comp": "a94703ab"
   },
   "/react-native-mazic-ui/docs/next/components/button-f2a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-next-components-button-9-eb-bd8"
+    "__comp": "17896441",
+    "content": "9eb89d33"
   },
   "/react-native-mazic-ui/docs/next/components/card-db1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-next-components-card-0-d-8-1af"
+    "__comp": "17896441",
+    "content": "0d8bf7e4"
   },
   "/react-native-mazic-ui/docs/next/components/error-boundary-fb8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-next-components-error-boundaryec-9-e53"
+    "__comp": "17896441",
+    "content": "ec9e97d3"
+  },
+  "/react-native-mazic-ui/docs/next/components/liquid-glass-button-624": {
+    "__comp": "17896441",
+    "content": "f063e082"
   },
   "/react-native-mazic-ui/docs/next/components/text-a02": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-next-components-textca-4-083"
+    "__comp": "17896441",
+    "content": "ca410661"
   },
   "/react-native-mazic-ui/docs/next/components/theme-522": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-next-components-theme-5-fa-35c"
+    "__comp": "17896441",
+    "content": "5fa4087a"
   },
   "/react-native-mazic-ui/docs/next/installation-047": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-next-installation-3-b-8-c99"
+    "__comp": "17896441",
+    "content": "3b8c55ea"
   },
   "/react-native-mazic-ui/docs/next/intro-606": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-next-intro-0-e-3-5d7"
+    "__comp": "17896441",
+    "content": "0e384e19"
   },
   "/react-native-mazic-ui/docs-4ea": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---react-native-mazic-ui-docs-772-0fc"
+    "__comp": "a7bd4aaa",
+    "__props": "7727d8b7"
   },
   "/react-native-mazic-ui/docs-b8f": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+    "__comp": "a94703ab"
   },
   "/react-native-mazic-ui/docs/components/button-380": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-components-button-549-684"
+    "__comp": "17896441",
+    "content": "549f53e8"
   },
   "/react-native-mazic-ui/docs/components/card-336": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-components-card-2-ed-ff9"
+    "__comp": "17896441",
+    "content": "2ed83e1b"
   },
   "/react-native-mazic-ui/docs/components/error-boundary-130": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-components-error-boundary-723-4c1"
+    "__comp": "17896441",
+    "content": "723db508"
   },
   "/react-native-mazic-ui/docs/components/text-a74": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-components-textd-0-a-85e"
+    "__comp": "17896441",
+    "content": "d0a5ae40"
   },
   "/react-native-mazic-ui/docs/components/theme-88a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-components-themebb-7-e23"
+    "__comp": "17896441",
+    "content": "bb74133f"
   },
   "/react-native-mazic-ui/docs/installation-ea3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-installationa-27-b49"
+    "__comp": "17896441",
+    "content": "a27ff3ee"
   },
   "/react-native-mazic-ui/docs/intro-875": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---react-native-mazic-ui-docs-introb-75-2a4"
+    "__comp": "17896441",
+    "content": "b759477d"
   },
   "/react-native-mazic-ui/-b94": {
-    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__comp": "1df93b7f",
     "__context": {
-      "plugin": "plugin---react-native-mazic-ui-a-74-b67"
+      "plugin": "a7456010"
     },
-    "config": "config---react-native-mazic-ui-5-e-9-e7d"
+    "config": "5e9f5e1a"
   }
 }
