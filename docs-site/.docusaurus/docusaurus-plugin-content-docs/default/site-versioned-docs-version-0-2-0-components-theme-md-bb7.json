@@ -5,7 +5,7 @@
   "source": "@site/versioned_docs/version-0.2.0/components/theme.md",
   "sourceDirName": "components",
   "slug": "/components/theme",
-  "permalink": "/react-native-mazic-ui/docs/components/theme",
+  "permalink": "/react-native-mazic-ui/docs/0.2.0/components/theme",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/versioned_docs/version-0.2.0/components/theme.md",
@@ -19,10 +19,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Error Boundary",
-    "permalink": "/react-native-mazic-ui/docs/components/error-boundary"
+    "permalink": "/react-native-mazic-ui/docs/0.2.0/components/error-boundary"
   },
   "next": {
     "title": "Card",
-    "permalink": "/react-native-mazic-ui/docs/components/card"
+    "permalink": "/react-native-mazic-ui/docs/0.2.0/components/card"
   }
 }

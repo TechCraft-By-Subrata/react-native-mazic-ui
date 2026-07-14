@@ -5,7 +5,7 @@
   "source": "@site/docs/components/card.md",
   "sourceDirName": "components",
   "slug": "/components/card",
-  "permalink": "/react-native-mazic-ui/docs/next/components/card",
+  "permalink": "/react-native-mazic-ui/docs/components/card",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/components/card.md",
@@ -19,10 +19,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Liquid Glass Buttons",
-    "permalink": "/react-native-mazic-ui/docs/next/components/liquid-glass-button"
+    "permalink": "/react-native-mazic-ui/docs/components/liquid-glass-button"
   },
   "next": {
     "title": "Text",
-    "permalink": "/react-native-mazic-ui/docs/next/components/text"
+    "permalink": "/react-native-mazic-ui/docs/components/text"
   }
 }

@@ -5,65 +5,7 @@
       "versions": [
         {
           "name": "current",
-          "label": "Next",
-          "isLast": false,
-          "path": "/react-native-mazic-ui/docs/next",
-          "mainDocId": "intro",
-          "docs": [
-            {
-              "id": "components/button",
-              "path": "/react-native-mazic-ui/docs/next/components/button",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "components/card",
-              "path": "/react-native-mazic-ui/docs/next/components/card",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "components/error-boundary",
-              "path": "/react-native-mazic-ui/docs/next/components/error-boundary",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "components/liquid-glass-button",
-              "path": "/react-native-mazic-ui/docs/next/components/liquid-glass-button",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "components/text",
-              "path": "/react-native-mazic-ui/docs/next/components/text",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "components/theme",
-              "path": "/react-native-mazic-ui/docs/next/components/theme",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "installation",
-              "path": "/react-native-mazic-ui/docs/next/installation",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "intro",
-              "path": "/react-native-mazic-ui/docs/next/intro",
-              "sidebar": "tutorialSidebar"
-            }
-          ],
-          "draftIds": [],
-          "sidebars": {
-            "tutorialSidebar": {
-              "link": {
-                "path": "/react-native-mazic-ui/docs/next/intro",
-                "label": "intro"
-              }
-            }
-          }
-        },
-        {
-          "name": "0.2.0",
-          "label": "0.2.0",
+          "label": "0.3.0",
           "isLast": true,
           "path": "/react-native-mazic-ui/docs",
           "mainDocId": "intro",
@@ -81,6 +23,11 @@
             {
               "id": "components/error-boundary",
               "path": "/react-native-mazic-ui/docs/components/error-boundary",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "components/liquid-glass-button",
+              "path": "/react-native-mazic-ui/docs/components/liquid-glass-button",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -109,6 +56,59 @@
             "tutorialSidebar": {
               "link": {
                 "path": "/react-native-mazic-ui/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        },
+        {
+          "name": "0.2.0",
+          "label": "0.2.0",
+          "isLast": false,
+          "path": "/react-native-mazic-ui/docs/0.2.0",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "components/button",
+              "path": "/react-native-mazic-ui/docs/0.2.0/components/button",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "components/card",
+              "path": "/react-native-mazic-ui/docs/0.2.0/components/card",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "components/error-boundary",
+              "path": "/react-native-mazic-ui/docs/0.2.0/components/error-boundary",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "components/text",
+              "path": "/react-native-mazic-ui/docs/0.2.0/components/text",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "components/theme",
+              "path": "/react-native-mazic-ui/docs/0.2.0/components/theme",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "installation",
+              "path": "/react-native-mazic-ui/docs/0.2.0/installation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/react-native-mazic-ui/docs/0.2.0/intro",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/react-native-mazic-ui/docs/0.2.0/intro",
                 "label": "intro"
               }
             }

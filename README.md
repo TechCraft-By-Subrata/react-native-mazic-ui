@@ -42,12 +42,14 @@ npm run release
 ## Installation
 
 ```sh
-npm install @tcbs/react-native-mazic-ui
+npm install @tcbs/react-native-mazic-ui @tcbs/react-native-exception-handler react-native-mmkv react-native-nitro-modules
 ```
 
 ```sh
-yarn add @tcbs/react-native-mazic-ui
+yarn add @tcbs/react-native-mazic-ui @tcbs/react-native-exception-handler react-native-mmkv react-native-nitro-modules
 ```
+
+Install `react-native-mmkv` and `react-native-nitro-modules` directly in your app. They contain native code, and React Native autolinking must discover them from the app project.
 
 
 ## Error Handling: AppErrorBoundary

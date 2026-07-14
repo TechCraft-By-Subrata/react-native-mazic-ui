@@ -5,85 +5,85 @@
       "plugin": "138e0e15"
     }
   },
-  "/react-native-mazic-ui/docs-249": {
+  "/react-native-mazic-ui/docs-498": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/react-native-mazic-ui/docs/next-0a6": {
+  "/react-native-mazic-ui/docs/0.2.0-547": {
     "__comp": "a7bd4aaa",
-    "__props": "c8dca731"
+    "__props": "21e7522d"
   },
-  "/react-native-mazic-ui/docs/next-ab3": {
+  "/react-native-mazic-ui/docs/0.2.0-bbe": {
     "__comp": "a94703ab"
   },
-  "/react-native-mazic-ui/docs/next/components/button-f2a": {
-    "__comp": "17896441",
-    "content": "9eb89d33"
-  },
-  "/react-native-mazic-ui/docs/next/components/card-db1": {
-    "__comp": "17896441",
-    "content": "0d8bf7e4"
-  },
-  "/react-native-mazic-ui/docs/next/components/error-boundary-fb8": {
-    "__comp": "17896441",
-    "content": "ec9e97d3"
-  },
-  "/react-native-mazic-ui/docs/next/components/liquid-glass-button-624": {
-    "__comp": "17896441",
-    "content": "f063e082"
-  },
-  "/react-native-mazic-ui/docs/next/components/text-a02": {
-    "__comp": "17896441",
-    "content": "ca410661"
-  },
-  "/react-native-mazic-ui/docs/next/components/theme-522": {
-    "__comp": "17896441",
-    "content": "5fa4087a"
-  },
-  "/react-native-mazic-ui/docs/next/installation-047": {
-    "__comp": "17896441",
-    "content": "3b8c55ea"
-  },
-  "/react-native-mazic-ui/docs/next/intro-606": {
-    "__comp": "17896441",
-    "content": "0e384e19"
-  },
-  "/react-native-mazic-ui/docs-4ea": {
-    "__comp": "a7bd4aaa",
-    "__props": "7727d8b7"
-  },
-  "/react-native-mazic-ui/docs-b8f": {
-    "__comp": "a94703ab"
-  },
-  "/react-native-mazic-ui/docs/components/button-380": {
+  "/react-native-mazic-ui/docs/0.2.0/components/button-682": {
     "__comp": "17896441",
     "content": "549f53e8"
   },
-  "/react-native-mazic-ui/docs/components/card-336": {
+  "/react-native-mazic-ui/docs/0.2.0/components/card-2be": {
     "__comp": "17896441",
     "content": "2ed83e1b"
   },
-  "/react-native-mazic-ui/docs/components/error-boundary-130": {
+  "/react-native-mazic-ui/docs/0.2.0/components/error-boundary-061": {
     "__comp": "17896441",
     "content": "723db508"
   },
-  "/react-native-mazic-ui/docs/components/text-a74": {
+  "/react-native-mazic-ui/docs/0.2.0/components/text-e33": {
     "__comp": "17896441",
     "content": "d0a5ae40"
   },
-  "/react-native-mazic-ui/docs/components/theme-88a": {
+  "/react-native-mazic-ui/docs/0.2.0/components/theme-c27": {
     "__comp": "17896441",
     "content": "bb74133f"
   },
-  "/react-native-mazic-ui/docs/installation-ea3": {
+  "/react-native-mazic-ui/docs/0.2.0/installation-61f": {
     "__comp": "17896441",
     "content": "a27ff3ee"
   },
-  "/react-native-mazic-ui/docs/intro-875": {
+  "/react-native-mazic-ui/docs/0.2.0/intro-7ab": {
     "__comp": "17896441",
     "content": "b759477d"
+  },
+  "/react-native-mazic-ui/docs-7e9": {
+    "__comp": "a7bd4aaa",
+    "__props": "7727d8b7"
+  },
+  "/react-native-mazic-ui/docs-87f": {
+    "__comp": "a94703ab"
+  },
+  "/react-native-mazic-ui/docs/components/button-516": {
+    "__comp": "17896441",
+    "content": "9eb89d33"
+  },
+  "/react-native-mazic-ui/docs/components/card-d24": {
+    "__comp": "17896441",
+    "content": "0d8bf7e4"
+  },
+  "/react-native-mazic-ui/docs/components/error-boundary-a63": {
+    "__comp": "17896441",
+    "content": "ec9e97d3"
+  },
+  "/react-native-mazic-ui/docs/components/liquid-glass-button-5af": {
+    "__comp": "17896441",
+    "content": "f063e082"
+  },
+  "/react-native-mazic-ui/docs/components/text-858": {
+    "__comp": "17896441",
+    "content": "ca410661"
+  },
+  "/react-native-mazic-ui/docs/components/theme-aa0": {
+    "__comp": "17896441",
+    "content": "5fa4087a"
+  },
+  "/react-native-mazic-ui/docs/installation-334": {
+    "__comp": "17896441",
+    "content": "3b8c55ea"
+  },
+  "/react-native-mazic-ui/docs/intro-ea4": {
+    "__comp": "17896441",
+    "content": "0e384e19"
   },
   "/react-native-mazic-ui/-b94": {
     "__comp": "1df93b7f",
