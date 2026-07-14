@@ -27,6 +27,15 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: '0.3.0',
+            },
+            '0.2.0': {
+              label: '0.2.0',
+            },
+          },
           // Please change this to your repo name
           editUrl:
             'https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/',
