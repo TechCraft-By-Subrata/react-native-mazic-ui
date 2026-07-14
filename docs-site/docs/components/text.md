@@ -1,12 +1,16 @@
 ---
 id: text
-title: CustomText Component
+title: TcbsText Component
 sidebar_label: Text
 ---
 
-# CustomText
+# TcbsText
 
-The `CustomText` component provides consistent typography with theme support.
+The `TcbsText` component provides consistent typography with theme support.
+
+```tsx
+import { TcbsText } from '@tcbs/react-native-mazic-ui';
+```
 
 ## Props
 
@@ -19,25 +23,25 @@ The `CustomText` component provides consistent typography with theme support.
 
 ### Title
 ```tsx
-<CustomText variant="title">Main Heading</CustomText>
+<TcbsText variant="title">Main Heading</TcbsText>
 ```
 
 ### Subtitle
 ```tsx
-<CustomText variant="subtitle">Secondary Heading</CustomText>
+<TcbsText variant="subtitle">Secondary Heading</TcbsText>
 ```
 
 ### Body (default)
 ```tsx
-<CustomText variant="body">Regular text content</CustomText>
+<TcbsText variant="body">Regular text content</TcbsText>
 ```
 
 ### Caption
 ```tsx
-<CustomText variant="caption">Small supporting text</CustomText>
+<TcbsText variant="caption">Small supporting text</TcbsText>
 ```
 
 ### Button
 ```tsx
-<CustomText variant="button">Button Text</CustomText>
+<TcbsText variant="button">Button Text</TcbsText>
 ```
