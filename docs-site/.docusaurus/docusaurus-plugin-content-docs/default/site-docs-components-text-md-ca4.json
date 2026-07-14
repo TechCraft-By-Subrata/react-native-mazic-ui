@@ -1,11 +1,11 @@
 {
   "id": "components/text",
-  "title": "CustomText Component",
-  "description": "The CustomText component provides consistent typography with theme support.",
+  "title": "TcbsText Component",
+  "description": "The TcbsText component provides consistent typography with theme support.",
   "source": "@site/docs/components/text.md",
   "sourceDirName": "components",
   "slug": "/components/text",
-  "permalink": "/react-native-mazic-ui/docs/next/components/text",
+  "permalink": "/react-native-mazic-ui/docs/components/text",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/components/text.md",
@@ -13,16 +13,16 @@
   "version": "current",
   "frontMatter": {
     "id": "text",
-    "title": "CustomText Component",
+    "title": "TcbsText Component",
     "sidebar_label": "Text"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Card",
-    "permalink": "/react-native-mazic-ui/docs/next/components/card"
+    "permalink": "/react-native-mazic-ui/docs/components/card"
   },
   "next": {
     "title": "Error Boundary",
-    "permalink": "/react-native-mazic-ui/docs/next/components/error-boundary"
+    "permalink": "/react-native-mazic-ui/docs/components/error-boundary"
   }
 }

@@ -5,7 +5,7 @@
   "source": "@site/docs/components/error-boundary.md",
   "sourceDirName": "components",
   "slug": "/components/error-boundary",
-  "permalink": "/react-native-mazic-ui/docs/next/components/error-boundary",
+  "permalink": "/react-native-mazic-ui/docs/components/error-boundary",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/components/error-boundary.md",
@@ -19,6 +19,6 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Text",
-    "permalink": "/react-native-mazic-ui/docs/next/components/text"
+    "permalink": "/react-native-mazic-ui/docs/components/text"
   }
 }

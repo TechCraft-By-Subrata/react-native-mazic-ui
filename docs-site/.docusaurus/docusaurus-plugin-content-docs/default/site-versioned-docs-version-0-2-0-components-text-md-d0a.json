@@ -5,7 +5,7 @@
   "source": "@site/versioned_docs/version-0.2.0/components/text.md",
   "sourceDirName": "components",
   "slug": "/components/text",
-  "permalink": "/react-native-mazic-ui/docs/components/text",
+  "permalink": "/react-native-mazic-ui/docs/0.2.0/components/text",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/versioned_docs/version-0.2.0/components/text.md",
@@ -19,6 +19,6 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Card",
-    "permalink": "/react-native-mazic-ui/docs/components/card"
+    "permalink": "/react-native-mazic-ui/docs/0.2.0/components/card"
   }
 }

@@ -5,7 +5,7 @@
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
   "slug": "/intro",
-  "permalink": "/react-native-mazic-ui/docs/next/intro",
+  "permalink": "/react-native-mazic-ui/docs/intro",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/intro.md",
@@ -19,6 +19,6 @@
   "sidebar": "tutorialSidebar",
   "next": {
     "title": "Installation",
-    "permalink": "/react-native-mazic-ui/docs/next/installation"
+    "permalink": "/react-native-mazic-ui/docs/installation"
   }
 }

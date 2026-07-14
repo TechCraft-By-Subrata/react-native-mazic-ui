@@ -9,61 +9,55 @@ export default [
   },
   {
     path: '/react-native-mazic-ui/docs',
-    component: ComponentCreator('/react-native-mazic-ui/docs', '249'),
+    component: ComponentCreator('/react-native-mazic-ui/docs', '498'),
     routes: [
       {
-        path: '/react-native-mazic-ui/docs/next',
-        component: ComponentCreator('/react-native-mazic-ui/docs/next', '0a6'),
+        path: '/react-native-mazic-ui/docs/0.2.0',
+        component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0', '547'),
         routes: [
           {
-            path: '/react-native-mazic-ui/docs/next',
-            component: ComponentCreator('/react-native-mazic-ui/docs/next', 'ab3'),
+            path: '/react-native-mazic-ui/docs/0.2.0',
+            component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0', 'bbe'),
             routes: [
               {
-                path: '/react-native-mazic-ui/docs/next/components/button',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/components/button', 'f2a'),
+                path: '/react-native-mazic-ui/docs/0.2.0/components/button',
+                component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0/components/button', '682'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/react-native-mazic-ui/docs/next/components/card',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/components/card', 'db1'),
+                path: '/react-native-mazic-ui/docs/0.2.0/components/card',
+                component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0/components/card', '2be'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/react-native-mazic-ui/docs/next/components/error-boundary',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/components/error-boundary', 'fb8'),
+                path: '/react-native-mazic-ui/docs/0.2.0/components/error-boundary',
+                component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0/components/error-boundary', '061'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/react-native-mazic-ui/docs/next/components/liquid-glass-button',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/components/liquid-glass-button', '624'),
+                path: '/react-native-mazic-ui/docs/0.2.0/components/text',
+                component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0/components/text', 'e33'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/react-native-mazic-ui/docs/next/components/text',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/components/text', 'a02'),
+                path: '/react-native-mazic-ui/docs/0.2.0/components/theme',
+                component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0/components/theme', 'c27'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/react-native-mazic-ui/docs/next/components/theme',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/components/theme', '522'),
+                path: '/react-native-mazic-ui/docs/0.2.0/installation',
+                component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0/installation', '61f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/react-native-mazic-ui/docs/next/installation',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/installation', '047'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/react-native-mazic-ui/docs/next/intro',
-                component: ComponentCreator('/react-native-mazic-ui/docs/next/intro', '606'),
+                path: '/react-native-mazic-ui/docs/0.2.0/intro',
+                component: ComponentCreator('/react-native-mazic-ui/docs/0.2.0/intro', '7ab'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               }
@@ -73,51 +67,57 @@ export default [
       },
       {
         path: '/react-native-mazic-ui/docs',
-        component: ComponentCreator('/react-native-mazic-ui/docs', '4ea'),
+        component: ComponentCreator('/react-native-mazic-ui/docs', '7e9'),
         routes: [
           {
             path: '/react-native-mazic-ui/docs',
-            component: ComponentCreator('/react-native-mazic-ui/docs', 'b8f'),
+            component: ComponentCreator('/react-native-mazic-ui/docs', '87f'),
             routes: [
               {
                 path: '/react-native-mazic-ui/docs/components/button',
-                component: ComponentCreator('/react-native-mazic-ui/docs/components/button', '380'),
+                component: ComponentCreator('/react-native-mazic-ui/docs/components/button', '516'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/react-native-mazic-ui/docs/components/card',
-                component: ComponentCreator('/react-native-mazic-ui/docs/components/card', '336'),
+                component: ComponentCreator('/react-native-mazic-ui/docs/components/card', 'd24'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/react-native-mazic-ui/docs/components/error-boundary',
-                component: ComponentCreator('/react-native-mazic-ui/docs/components/error-boundary', '130'),
+                component: ComponentCreator('/react-native-mazic-ui/docs/components/error-boundary', 'a63'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/react-native-mazic-ui/docs/components/liquid-glass-button',
+                component: ComponentCreator('/react-native-mazic-ui/docs/components/liquid-glass-button', '5af'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/react-native-mazic-ui/docs/components/text',
-                component: ComponentCreator('/react-native-mazic-ui/docs/components/text', 'a74'),
+                component: ComponentCreator('/react-native-mazic-ui/docs/components/text', '858'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/react-native-mazic-ui/docs/components/theme',
-                component: ComponentCreator('/react-native-mazic-ui/docs/components/theme', '88a'),
+                component: ComponentCreator('/react-native-mazic-ui/docs/components/theme', 'aa0'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/react-native-mazic-ui/docs/installation',
-                component: ComponentCreator('/react-native-mazic-ui/docs/installation', 'ea3'),
+                component: ComponentCreator('/react-native-mazic-ui/docs/installation', '334'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
                 path: '/react-native-mazic-ui/docs/intro',
-                component: ComponentCreator('/react-native-mazic-ui/docs/intro', '875'),
+                component: ComponentCreator('/react-native-mazic-ui/docs/intro', 'ea4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               }

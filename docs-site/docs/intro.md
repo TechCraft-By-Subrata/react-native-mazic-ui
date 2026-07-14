@@ -31,7 +31,7 @@ Every component is expected to satisfy the following baseline requirements befor
 ## Quick Start
 
 ```bash
-npm install @tcbs/react-native-mazic-ui@latest @tcbs/react-native-exception-handler
+npm install @tcbs/react-native-mazic-ui@latest @tcbs/react-native-exception-handler react-native-mmkv react-native-nitro-modules
 ```
 
 ## Features

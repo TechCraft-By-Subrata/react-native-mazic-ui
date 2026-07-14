@@ -5,7 +5,7 @@
   "source": "@site/docs/installation.md",
   "sourceDirName": ".",
   "slug": "/installation",
-  "permalink": "/react-native-mazic-ui/docs/next/installation",
+  "permalink": "/react-native-mazic-ui/docs/installation",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/TechCraft-By-Subrata/react-native-mazic-ui/edit/main/docs-site/docs/installation.md",
@@ -19,10 +19,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Introduction",
-    "permalink": "/react-native-mazic-ui/docs/next/intro"
+    "permalink": "/react-native-mazic-ui/docs/intro"
   },
   "next": {
     "title": "Theme",
-    "permalink": "/react-native-mazic-ui/docs/next/components/theme"
+    "permalink": "/react-native-mazic-ui/docs/components/theme"
   }
 }
